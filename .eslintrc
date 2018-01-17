@@ -1,5 +1,11 @@
 {
-    "extends": ["airbnb", "prettier"],
+    "extends": [
+        "airbnb",
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
     "rules": {
         "indent": [0, 2, {"SwitchCase": 4}],
         "react/jsx-indent": [0, 2, {"SwitchCase": 4}],
@@ -7,7 +13,12 @@
         "react/prefer-stateless-function": 0,
         "react/jsx-filename-extension": 0,
         "react/no-unescaped-entities": ["error", {"forbid": []}],
-        "prettier/prettier": "error"
+        "prettier/prettier": ["error",
+        {
+            "singleQuote": true,
+            "tabWidth": 4,
+            "jsxBracketSameLine": true
+        }]
     },
     "env": {
         "browser": true,

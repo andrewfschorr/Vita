@@ -1,0 +1,9 @@
+VS code settings:
+"prettier.printWidth": 100,
+"prettier.singleQuote": true,
+"prettier.trailingComma": "all",
+"prettier.eslintIntegration": true
+
+cd storage/logs && tail -f laravel.log
+
+php artisan route:list
