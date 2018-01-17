@@ -1,0 +1,15 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "indent": [0, 2, {"SwitchCase": 4}],
+        "react/jsx-indent": [0, 2, {"SwitchCase": 4}],
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "react/prefer-stateless-function": 0,
+        "react/jsx-filename-extension": 0,
+        "react/no-unescaped-entities": ["error", {"forbid": []}]
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    }
+}
