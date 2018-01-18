@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import style from './index.css';
 
 export default class Example extends Component {
     render() {
@@ -8,12 +9,14 @@ export default class Example extends Component {
                 <div className="row">
                     <div className="col-md-8 col-md-offset-2">
                         <div className="panel panel-default">
+
                             <div className="panel-heading">
                                 Example Component
                             </div>
                             <div className="panel-body">
-                                I'm an example component!
+                                <p styleName='hi'>hello</p>
                             </div>
+                            <div className={style.a}>hello</div>
                         </div>
                     </div>
                 </div>
