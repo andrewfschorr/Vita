@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function(e) {
+document.addEventListener('DOMContentLoaded', () => {
     const usernameEl = document.querySelector('input[name="username"]');
-    usernameEl.addEventListener('keydown', function(e) {
+    usernameEl.addEventListener('keydown', e => {
         if (e.which === 32) {
             e.preventDefault();
         }

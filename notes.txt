@@ -4,6 +4,10 @@ VS code settings:
 "prettier.trailingComma": "all",
 "prettier.eslintIntegration": true
 
+"search.useIgnoreFiles": false
+
 cd storage/logs && tail -f laravel.log
 
 php artisan route:list
+
+/vendor/laravel/framework/src/Illuminate/Routing/Router.php
