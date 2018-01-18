@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import style from './index.css';
+import './index.css';
 
 export default class Example extends Component {
     render() {
@@ -13,8 +13,8 @@ export default class Example extends Component {
                             <div className="panel-heading">
                                 Example Component
                             </div>
-                            {/* <div styleName='a'>hello</div> */}
-                            <div className={style.a}>hello</div>
+                            {/* <div className={style.a}>hell!o</div> */}
+                            <div styleName='a'>hello</div>
                         </div>
                     </div>
                 </div>
