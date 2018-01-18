@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -53,7 +53,7 @@
             </div>
 
         </div>
-    </nav>
+    </nav> -->
     @yield('content')
 </div>
 <script src="{{ asset('js/app.js') }}"></script>
