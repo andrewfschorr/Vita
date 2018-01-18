@@ -13,9 +13,7 @@ export default class Example extends Component {
                             <div className="panel-heading">
                                 Example Component
                             </div>
-                            <div className="panel-body">
-                                <p styleName='hi'>hello</p>
-                            </div>
+                            {/* <div styleName='a'>hello</div> */}
                             <div className={style.a}>hello</div>
                         </div>
                     </div>

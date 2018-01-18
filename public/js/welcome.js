@@ -8019,15 +8019,6 @@ var Example = function (_Component) {
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
-                                { className: 'panel-body' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'p',
-                                    { styleName: 'hi' },
-                                    'hello'
-                                )
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'div',
                                 { className: __WEBPACK_IMPORTED_MODULE_2__index_css___default.a.a },
                                 'hello'
                             )
@@ -18052,8 +18043,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./index.css", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]!./index.css");
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./index.css", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./index.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -18071,12 +18062,12 @@ exports = module.exports = __webpack_require__(120)(false);
 
 
 // module
-exports.push([module.i, "* {color: red;}\n\n._-_-_-_-resources-assets-js-components-___index__hi___2g_dY {\n    color: blue;\n}\n\n._-_-_-_-resources-assets-js-components-___index__a___1TazJ {\n    color: green;\n}\n", ""]);
+exports.push([module.i, "* {color: red;}\n\n.index__hi___2g_dY {\n    color: blue;\n}\n\n.index__a___1TazJ {\n    color: green;\n}\n", ""]);
 
 // exports
 exports.locals = {
-	"hi": "_-_-_-_-resources-assets-js-components-___index__hi___2g_dY",
-	"a": "_-_-_-_-resources-assets-js-components-___index__a___1TazJ"
+	"hi": "index__hi___2g_dY",
+	"a": "index__a___1TazJ"
 };
 
 /***/ })
