@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import styles from './index.scss';
+// import styles from './index.scss';
 // import stylesTwo from './index.css';
 
 export default class Example extends Component {
@@ -15,7 +15,7 @@ export default class Example extends Component {
                                 Example Component
                             </div>
                             {/* <div className={style.a}>hell!o</div> */}
-                            <div styleName='a'>hello</div>
+                            {/* <div styleName='a'>hello</div> */}
                         </div>
                     </div>
                 </div>
