@@ -1,7 +1,12 @@
 {
     "plugins": [
       ["react-css-modules", {
-        "generateScopedName": "[path]___[name]__[local]___[hash:base64:5]"
+        "generateScopedName": "[path]__[name]__[local]___[hash:base64:5]",
+        "filetypes": {
+            ".scss": {
+              "syntax": "postcss-scss"
+            }
+          }
       }]
     ]
   }

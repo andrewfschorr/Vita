@@ -27,6 +27,7 @@
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
     "popper.js": "^1.12.9",
+    "postcss-scss": "^1.0.3",
     "prettier": "1.10.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"

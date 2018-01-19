@@ -1,8 +1,8 @@
 {
     "/js/welcome.js": "/js/welcome.js",
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
+    "/css/global.css": "/css/global.css",
     "/js/vendor.js": "/js/vendor.js",
+    "/js/app.js": "/js/app.js",
     "/js/register.js": "/js/register.js",
     "/js/manifest.js": "/js/manifest.js"
 }

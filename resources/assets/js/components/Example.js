@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import styles from './index.scss';
+// import stylesTwo from './index.css';
 
 export default class Example extends Component {
     render() {
