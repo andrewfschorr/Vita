@@ -18,7 +18,7 @@ export default class Example extends Component {
                                 Example Component
                             </div>
                             {/* <div styleName='a'>hello</div> */}
-                            <div className="reg">hello!!!</div>
+                            <div styleName="reg">hello!!!</div>
                         </div>
                     </div>
                 </div>

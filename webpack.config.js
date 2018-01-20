@@ -4,14 +4,15 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
+        // TODO figure out a way to not manually list out all of them
         // JS
         vendor: 'react',
         app: './resources/assets/js/app.js',
         home: './resources/assets/js/home.js',
         register: './resources/assets/js/register.js',
         // CSS
-        global: './resources/assets/sass/global.scss',
-        foo: './resources/assets/sass/foo.scss'
+        global: './resources/assets/sass/app.global.scss',
+        foo: './resources/assets/sass/app.global.scss'
     },
     output: {
         path: path.resolve('public/js'),
@@ -28,12 +29,13 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
-                exclude: /node_modules/,
-                loaders: [
-                    'style-loader',
-                    'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
-                ]
+                // for testing, no one should ever be using plain css in 2018
+                // test: /\.css$/,
+                // exclude: /node_modules/,
+                // loaders: [
+                //     'style-loader',
+                //     'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+                // ]
             },
             {
                 test: /\.jsx$/,
@@ -41,10 +43,19 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.scss$/,
+                // local CSS modules
+                test: /^((?!\.global).)*\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: ['css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'sass-loader']
+                })
+            },
+            {
+                // Global plain ol sass
+                test: /\.global\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
                 })
             }
         ]

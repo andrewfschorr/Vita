@@ -17445,17 +17445,18 @@ module.exports = ReactDOMInvalidARIAHook;
 /* 210 */,
 /* 211 */,
 /* 212 */,
-/* 213 */
+/* 213 */,
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 console.log('home, requiring example');
-__webpack_require__(214);
+__webpack_require__(215);
 
 /***/ }),
-/* 214 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17475,7 +17476,7 @@ var _reactDom = __webpack_require__(78);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _index = __webpack_require__(215);
+var _index = __webpack_require__(216);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -17546,11 +17547,11 @@ if (document.getElementById('exampleDomEl')) {
 }
 
 /***/ }),
-/* 215 */
+/* 216 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 module.exports = {"a":"resources-assets-js-components-example-___index__a___2cyVf"};
 
 /***/ })
-],[213]);
+],[214]);

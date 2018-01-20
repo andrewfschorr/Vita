@@ -17448,17 +17448,18 @@ module.exports = ReactDOMInvalidARIAHook;
 /* 213 */,
 /* 214 */,
 /* 215 */,
-/* 216 */
+/* 216 */,
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 console.log('register page');
-__webpack_require__(217);
+__webpack_require__(218);
 
 /***/ }),
-/* 217 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17478,7 +17479,7 @@ var _reactDom = __webpack_require__(78);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-__webpack_require__(218);
+__webpack_require__(219);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -17524,7 +17525,7 @@ var Example = function (_Component) {
                             ),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'reg' },
+                                { className: 'resources-assets-js-components-register-___index__reg___3cTEY' },
                                 'hello!!!'
                             )
                         )
@@ -17545,11 +17546,11 @@ if (document.getElementById('registerDomEl')) {
 }
 
 /***/ }),
-/* 218 */
+/* 219 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 module.exports = {"reg":"resources-assets-js-components-register-___index__reg___3cTEY"};
 
 /***/ })
-],[216]);
+],[217]);
