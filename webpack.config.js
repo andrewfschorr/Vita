@@ -1,12 +1,13 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: {
         // TODO figure out a way to not manually list out all of them
         // JS
-        vendor: 'react',
+        vendor: ['react', 'react-dom'],
         app: './resources/assets/js/app.js',
         home: './resources/assets/js/home.js',
         register: './resources/assets/js/register.js',
@@ -66,6 +67,9 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static'
         })
     ]
 };
