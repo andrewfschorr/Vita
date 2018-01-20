@@ -11,7 +11,7 @@ module.exports = {
         register: './resources/assets/js/register.js',
         // CSS
         global: './resources/assets/sass/global.scss',
-        foo: './resources/assets/sass/foo.scss',
+        foo: './resources/assets/sass/foo.scss'
     },
     output: {
         path: path.resolve('public/js'),
@@ -22,7 +22,18 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                query: {
+                    plugins: ['react-css-modules']
+                }
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                loaders: [
+                    'style-loader',
+                    'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+                ]
             },
             {
                 test: /\.jsx$/,
@@ -33,7 +44,7 @@ module.exports = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
+                    use: ['css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'sass-loader']
                 })
             }
         ]
@@ -43,7 +54,7 @@ module.exports = {
             filename: '../styles/[name].css'
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-        }),
+            name: 'vendor'
+        })
     ]
 };

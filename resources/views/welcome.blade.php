@@ -1,3 +1,8 @@
+@section('pageStyle')
+<link href="{{ asset('styles/home.css') }}" rel="stylesheet">
+@endsection
+
+
 @extends('layouts.vita')
 
 @section('content')

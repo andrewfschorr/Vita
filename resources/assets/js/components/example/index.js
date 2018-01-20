@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+// import './index.scss';
+import s from './index.scss';
 
 export default class Example extends Component {
     render() {
@@ -18,7 +19,7 @@ export default class Example extends Component {
                                 Example Component
                             </div>
                             {/* <div styleName='a'>hello</div> */}
-                            <div className="a">hello!!!</div>
+                            <div styleName="a">hello!!!</div>
                         </div>
                     </div>
                 </div>

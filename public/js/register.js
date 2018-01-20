@@ -17549,6 +17549,7 @@ if (document.getElementById('registerDomEl')) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+module.exports = {"reg":"resources-assets-js-components-register-___index__reg___3cTEY"};
 
 /***/ })
 ],[216]);

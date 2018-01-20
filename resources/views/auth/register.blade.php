@@ -1,7 +1,9 @@
-@extends('layouts.vita')
 @section('pageStyle')
 <link href="{{ asset('styles/register.css') }}" rel="stylesheet">
 @endsection
+
+@extends('layouts.vita')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-md-center mt-5">
