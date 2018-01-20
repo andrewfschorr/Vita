@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -10,8 +10,31 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
 mix
+    .webpackConfig({
+        module: {
+            rules: [
+                {
+                    test: /\.jsx?$/,
+                    use: [
+                        {
+                            loader: 'babel-loader',
+                            options: {
+                                plugins: ['react-css-modules']
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /\.css$/,
+                    exclude: [],
+                    loader:
+                        'style-loader!css-loader?modules=true&localIdentName=[path]__[name]__[local]___[hash:base64:5]'
+                }
+            ]
+        },
+        plugins: [new ExtractTextPlugin('[name].css', { allChunks: true })]
+    })
     .react('resources/assets/js/app.js', 'public/js')
     .extract(['react'])
     .js('resources/assets/js/register.js', 'public/js')

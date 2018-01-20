@@ -5062,7 +5062,11 @@ module.exports = getTextContentAccessor;
 
 var _prodInvariant = __webpack_require__(2);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
 
 var PooledClass = __webpack_require__(15);
 
@@ -5097,7 +5101,6 @@ var CallbackQueue = function () {
    * @internal
    */
 
-
   CallbackQueue.prototype.enqueue = function enqueue(callback, context) {
     this._callbacks = this._callbacks || [];
     this._callbacks.push(callback);
@@ -5111,7 +5114,6 @@ var CallbackQueue = function () {
    *
    * @internal
    */
-
 
   CallbackQueue.prototype.notifyAll = function notifyAll() {
     var callbacks = this._callbacks;
@@ -5146,7 +5148,6 @@ var CallbackQueue = function () {
    * @internal
    */
 
-
   CallbackQueue.prototype.reset = function reset() {
     this._callbacks = null;
     this._contexts = null;
@@ -5155,7 +5156,6 @@ var CallbackQueue = function () {
   /**
    * `PooledClass` looks for this.
    */
-
 
   CallbackQueue.prototype.destructor = function destructor() {
     this.reset();
@@ -5239,7 +5239,6 @@ var inputValueTracking = {
   _getTrackerFromNode: function (node) {
     return getTracker(ReactDOMComponentTree.getInstanceFromNode(node));
   },
-
 
   track: function (inst) {
     if (getTracker(inst)) {
@@ -6795,6 +6794,7 @@ module.exports = ReactInputSelection;
  * @param {?DOMDocument} doc Defaults to current document.
  * @return {?DOMElement}
  */
+
 function getActiveElement(doc) /*?DOMElement*/{
   doc = doc || (typeof document !== 'undefined' ? document : undefined);
   if (typeof doc === 'undefined') {
@@ -7422,14 +7422,14 @@ module.exports = getHostComponentFromComposite;
 	Author Tobias Koppers @sokra
 */
 // css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
+module.exports = function (useSourceMap) {
 	var list = [];
 
 	// return the list of modules as css string
 	list.toString = function toString() {
 		return this.map(function (item) {
 			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
+			if (item[2]) {
 				return "@media " + item[2] + "{" + content + "}";
 			} else {
 				return content;
@@ -7438,25 +7438,23 @@ module.exports = function(useSourceMap) {
 	};
 
 	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
+	list.i = function (modules, mediaQuery) {
+		if (typeof modules === "string") modules = [[null, modules, ""]];
 		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
+		for (var i = 0; i < this.length; i++) {
 			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
+			if (typeof id === "number") alreadyImportedModules[id] = true;
 		}
-		for(i = 0; i < modules.length; i++) {
+		for (i = 0; i < modules.length; i++) {
 			var item = modules[i];
 			// skip already imported module
 			// this implementation is not 100% perfect for weird media query combinations
 			//  when a module is imported multiple times with different media queries.
 			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
+			if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if (mediaQuery && !item[2]) {
 					item[2] = mediaQuery;
-				} else if(mediaQuery) {
+				} else if (mediaQuery) {
 					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
 				}
 				list.push(item);
@@ -7476,7 +7474,7 @@ function cssWithMappingToString(item, useSourceMap) {
 	if (useSourceMap && typeof btoa === 'function') {
 		var sourceMapping = toComment(cssMapping);
 		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
 		});
 
 		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
@@ -7493,7 +7491,6 @@ function toComment(sourceMap) {
 
 	return '/*# ' + data + ' */';
 }
-
 
 /***/ }),
 /* 121 */
@@ -7873,64 +7870,63 @@ function updateLink (link, options, obj) {
  */
 
 module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
+	// get current location
+	var location = typeof window !== "undefined" && window.location;
 
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
+	if (!location) {
+		throw new Error("fixUrls requires window.location");
+	}
 
 	// blank or null?
 	if (!css || typeof css !== "string") {
-	  return css;
-  }
+		return css;
+	}
 
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+	var baseUrl = location.protocol + "//" + location.host;
+	var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
 
 	// convert each url(...)
 	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
+ This regular expression is just a way to recursively match brackets within
+ a string.
+ 	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+    (  = Start a capturing group
+      (?:  = Start a non-capturing group
+          [^)(]  = Match anything that isn't a parentheses
+          |  = OR
+          \(  = Match a start parentheses
+              (?:  = Start another non-capturing groups
+                  [^)(]+  = Match anything that isn't a parentheses
+                  |  = OR
+                  \(  = Match a start parentheses
+                      [^)(]*  = Match anything that isn't a parentheses
+                  \)  = Match a end parentheses
+              )  = End Group
               *\) = Match anything and then a close parens
           )  = Close non-capturing group
           *  = Match anything
        )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+  \)  = Match a close parens
+ 	 /gi  = Get all matches, not the first.  Be case insensitive.
+  */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function (fullMatch, origUrl) {
 		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+		var unquotedOrigUrl = origUrl.trim().replace(/^"(.*)"$/, function (o, $1) {
+			return $1;
+		}).replace(/^'(.*)'$/, function (o, $1) {
+			return $1;
+		});
 
 		// already a full url? no change
 		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
+			return fullMatch;
 		}
 
 		// convert the url to a full url
 		var newUrl;
 
 		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
+			//TODO: should we add protocol?
 			newUrl = unquotedOrigUrl;
 		} else if (unquotedOrigUrl.indexOf("/") === 0) {
 			// path should be relative to the base url
@@ -7947,7 +7943,6 @@ module.exports = function (css) {
 	// send back the fixed css
 	return fixedCss;
 };
-
 
 /***/ }),
 /* 123 */,
@@ -8019,7 +8014,7 @@ var Example = function (_Component) {
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'div',
-                                { className: __WEBPACK_IMPORTED_MODULE_2__index_css___default.a.a },
+                                { className: 'resources-assets-js-components-___index__a___3boKA' },
                                 'hello'
                             )
                         )
@@ -8062,7 +8057,6 @@ if (document.getElementById('example')) {
 
 
 module.exports = __webpack_require__(144);
-
 
 /***/ }),
 /* 144 */
@@ -14903,7 +14897,11 @@ module.exports = ReactServerRenderingTransaction;
 
 
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
 
 var ReactUpdateQueue = __webpack_require__(49);
 
@@ -14939,7 +14937,6 @@ var ReactServerUpdateQueue = function () {
    * @final
    */
 
-
   ReactServerUpdateQueue.prototype.isMounted = function isMounted(publicInstance) {
     return false;
   };
@@ -14952,7 +14949,6 @@ var ReactServerUpdateQueue = function () {
    * @param {?function} callback Called after state is updated.
    * @internal
    */
-
 
   ReactServerUpdateQueue.prototype.enqueueCallback = function enqueueCallback(publicInstance, callback, callerName) {
     if (this.transaction.isInTransaction()) {
@@ -14974,7 +14970,6 @@ var ReactServerUpdateQueue = function () {
    * @internal
    */
 
-
   ReactServerUpdateQueue.prototype.enqueueForceUpdate = function enqueueForceUpdate(publicInstance) {
     if (this.transaction.isInTransaction()) {
       ReactUpdateQueue.enqueueForceUpdate(publicInstance);
@@ -14995,7 +14990,6 @@ var ReactServerUpdateQueue = function () {
    * @internal
    */
 
-
   ReactServerUpdateQueue.prototype.enqueueReplaceState = function enqueueReplaceState(publicInstance, completeState) {
     if (this.transaction.isInTransaction()) {
       ReactUpdateQueue.enqueueReplaceState(publicInstance, completeState);
@@ -15014,7 +15008,6 @@ var ReactServerUpdateQueue = function () {
    * @param {object|function} partialState Next partial state to be merged with state.
    * @internal
    */
-
 
   ReactServerUpdateQueue.prototype.enqueueSetState = function enqueueSetState(publicInstance, partialState) {
     if (this.transaction.isInTransaction()) {
@@ -16268,6 +16261,7 @@ module.exports = isTextNode;
  * @param {*} object The object to check.
  * @return {boolean} Whether or not the object is a DOM node.
  */
+
 function isNode(object) {
   var doc = object ? object.ownerDocument || object : document;
   var defaultView = doc.defaultView || window;
@@ -18043,8 +18037,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./index.css", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!./index.css");
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js?modules=true&localIdentName=[path]__[name]__[local]___[hash:base64:5]!./index.css", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js?modules=true&localIdentName=[path]__[name]__[local]___[hash:base64:5]!./index.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -18062,12 +18056,11 @@ exports = module.exports = __webpack_require__(120)(false);
 
 
 // module
-exports.push([module.i, "* {color: red;}\n\n.index__hi___2g_dY {\n    color: blue;\n}\n\n.index__a___1TazJ {\n    color: green;\n}\n", ""]);
+exports.push([module.i, "/* * {color: red;}\n\n.hi {\n    color: blue;\n} */\n\n._-_-_-_-resources-assets-js-components-__index__a___1TazJ {\n    color: green;\n}\n", ""]);
 
 // exports
 exports.locals = {
-	"hi": "index__hi___2g_dY",
-	"a": "index__a___1TazJ"
+	"a": "_-_-_-_-resources-assets-js-components-__index__a___1TazJ"
 };
 
 /***/ })
