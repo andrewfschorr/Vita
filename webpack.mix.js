@@ -11,34 +11,43 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
  |
  */
 mix
-    .webpackConfig({
-        module: {
-            rules: [
-                {
-                    test: /\.jsx?$/,
-                    use: [
-                        {
-                            loader: 'babel-loader',
-                            options: {
-                                plugins: ['react-css-modules']
-                            }
-                        }
-                    ]
-                },
-                {
-                    test: /\.css$/,
-                    exclude: [],
-                    loader:
-                        'style-loader!css-loader?modules=true&localIdentName=[path]__[name]__[local]___[hash:base64:5]'
-                }
-            ]
-        },
-        plugins: [new ExtractTextPlugin('[name].css', { allChunks: true })]
-    })
     .react('resources/assets/js/app.js', 'public/js')
     .extract(['react'])
     .js('resources/assets/js/register.js', 'public/js')
     .js('resources/assets/js/welcome.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css');
+    .sass('resources/assets/sass/app.scss', 'public/css')
+    .webpackConfig({
+        module: {
+            // rules: [
+            //     {
+            //         test: /\.jsx?$/,
+            //         use: [
+            //             {
+            //                 loader: 'babel-loader',
+            //                 options: {
+            //                     plugins: ['react-css-modules']
+            //                 }
+            //             }
+            //         ]
+            //     },
+            //     {
+            //         loaders: [
+            //             'style-loader',
+            //             'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+            //         ],
+            //         test: /\.css$/
+            //     },
+            //     {
+            //         test: /\.s[ac]ss$/,
+            //         loaders: [
+            //             'style-loader',
+            //             'css-loader',
+            //             'sass-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
+            //         ]
+            //     },
+            // ]
+        },
+        // plugins: [new ExtractTextPlugin('[name].css', { allChunks: true })]
+    });
 
 mix.disableNotifications();

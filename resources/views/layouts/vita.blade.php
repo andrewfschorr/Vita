@@ -11,13 +11,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('styles/global.css') }}" rel="stylesheet">
+    @yield('pageStyle')
 </head>
 <body>
 @yield('content')
-<script src="{{ asset('js/manifest.js') }}" defer></script>
-<script src="{{ asset('js/vendor.js') }}" defer></script>
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/vendor.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 @yield('pageScript')
 </body>
 </html>

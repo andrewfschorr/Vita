@@ -1,5 +1,7 @@
-@extends('layouts.app')
-
+@extends('layouts.vita')
+@section('pageStyle')
+<link href="{{ asset('styles/register.css') }}" rel="stylesheet">
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-md-center mt-5">
@@ -118,6 +120,7 @@
         </div>
     </div>
 </div>
+<div id="registerDomEl"></div>
 @endsection
 
 @section('pageScript')

@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 
 export default class Example extends Component {
     render() {
+        const hi = () => {
+            console.log('!');
+        };
+
+        hi();
         return (
             <div className="container">
                 <div className="row">
@@ -13,7 +18,7 @@ export default class Example extends Component {
                                 Example Component
                             </div>
                             {/* <div styleName='a'>hello</div> */}
-                            <div styleName="a">hello</div>
+                            <div className="a">hello!!!</div>
                         </div>
                     </div>
                 </div>
@@ -22,6 +27,6 @@ export default class Example extends Component {
     }
 }
 
-if (document.getElementById('example')) {
-    ReactDOM.render(<Example />, document.getElementById('example'));
+if (document.getElementById('exampleDomEl')) {
+    ReactDOM.render(<Example />, document.getElementById('exampleDomEl'));
 }

@@ -2,8 +2,8 @@
 
 @section('content')
 <p>helo</p>
-<div id="example"></div>
+<div id="exampleDomEl"></div>
 @endsection
 @section('pageScript')
-<script src="{{ asset('js/welcome.js') }}" defer></script>
+<script src="{{ asset('js/home.js') }}" defer></script>
 @endsection
