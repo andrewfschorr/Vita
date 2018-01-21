@@ -1,4 +1,4 @@
-webpackJsonp([1],{
+webpackJsonp([2],{
 
 /***/ 218:
 /***/ (function(module, exports, __webpack_require__) {
@@ -53,11 +53,6 @@ var Example = function (_Component) {
     _createClass(Example, [{
         key: 'render',
         value: function render() {
-            var hi = function hi() {
-                console.log('!');
-            };
-
-            hi();
             return _react2.default.createElement(
                 'div',
                 { className: 'container' },

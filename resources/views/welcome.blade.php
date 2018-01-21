@@ -1,14 +1,10 @@
 @section('pageStyle')
-<link href="{{ asset('styles/home.css') }}" rel="stylesheet">
+<link href="{{ asset('styles/welcome.css') }}" rel="stylesheet">
 @endsection
-
-
 @extends('layouts.vita')
-
 @section('content')
-<p>helo</p>
-<div id="exampleDomEl"></div>
+<div id="welcomeCpt"></div>
 @endsection
 @section('pageScript')
-<script src="{{ asset('js/home.js') }}" defer></script>
+<script src="{{ asset('js/welcome.js') }}" defer></script>
 @endsection

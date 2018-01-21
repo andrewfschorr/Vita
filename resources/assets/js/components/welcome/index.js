@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-// import './index.scss';
 import s from './index.scss';
 
-export default class Example extends Component {
+export default class Welcome extends Component {
     render() {
-        const hi = () => {
-            console.log('!');
-        };
-
-        hi();
         return (
             <div className="container">
                 <div className="row">
@@ -28,6 +22,6 @@ export default class Example extends Component {
     }
 }
 
-if (document.getElementById('exampleDomEl')) {
-    ReactDOM.render(<Example />, document.getElementById('exampleDomEl'));
+if (document.getElementById('welcomeCpt')) {
+    ReactDOM.render(<Welcome />, document.getElementById('welcomeCpt'));
 }

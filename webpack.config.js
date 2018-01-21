@@ -4,12 +4,13 @@ const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
+    // devtool: 'source-map',
     entry: {
         // TODO figure out a way to not manually list out all of them
         // JS
         vendor: ['react', 'react-dom'],
         app: './resources/assets/js/app.js',
-        home: './resources/assets/js/home.js',
+        welcome: './resources/assets/js/welcome.js',
         register: './resources/assets/js/register.js',
         // CSS
         global: './resources/assets/sass/app.global.scss',
@@ -68,8 +69,8 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
         }),
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'static'
-        })
+        // new BundleAnalyzerPlugin({
+        //     analyzerMode: 'static'
+        // })
     ]
 };

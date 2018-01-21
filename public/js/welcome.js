@@ -1,4 +1,4 @@
-webpackJsonp([2],{
+webpackJsonp([1],{
 
 /***/ 215:
 /***/ (function(module, exports, __webpack_require__) {
@@ -6,7 +6,6 @@ webpackJsonp([2],{
 "use strict";
 
 
-console.log('home, requiring example');
 __webpack_require__(216);
 
 /***/ }),
@@ -42,26 +41,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import './index.scss';
 
+var Welcome = function (_Component) {
+    _inherits(Welcome, _Component);
 
-var Example = function (_Component) {
-    _inherits(Example, _Component);
+    function Welcome() {
+        _classCallCheck(this, Welcome);
 
-    function Example() {
-        _classCallCheck(this, Example);
-
-        return _possibleConstructorReturn(this, (Example.__proto__ || Object.getPrototypeOf(Example)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Welcome.__proto__ || Object.getPrototypeOf(Welcome)).apply(this, arguments));
     }
 
-    _createClass(Example, [{
+    _createClass(Welcome, [{
         key: 'render',
         value: function render() {
-            var hi = function hi() {
-                console.log('!');
-            };
-
-            hi();
             return _react2.default.createElement(
                 'div',
                 { className: 'container' },
@@ -81,7 +73,7 @@ var Example = function (_Component) {
                             ),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'resources-assets-js-components-example-___index__a___2cyVf' },
+                                { className: 'resources-assets-js-components-welcome-___index__a___1C4Wq' },
                                 'hello!!!'
                             )
                         )
@@ -91,14 +83,14 @@ var Example = function (_Component) {
         }
     }]);
 
-    return Example;
+    return Welcome;
 }(_react.Component);
 
-exports.default = Example;
+exports.default = Welcome;
 
 
-if (document.getElementById('exampleDomEl')) {
-    _reactDom2.default.render(_react2.default.createElement(Example, null), document.getElementById('exampleDomEl'));
+if (document.getElementById('welcomeCpt')) {
+    _reactDom2.default.render(_react2.default.createElement(Welcome, null), document.getElementById('welcomeCpt'));
 }
 
 /***/ }),
@@ -107,7 +99,7 @@ if (document.getElementById('exampleDomEl')) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"a":"resources-assets-js-components-example-___index__a___2cyVf"};
+module.exports = {"a":"resources-assets-js-components-welcome-___index__a___1C4Wq"};
 
 /***/ })
 

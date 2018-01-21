@@ -4,11 +4,6 @@ import './index.scss';
 
 export default class Example extends Component {
     render() {
-        const hi = () => {
-            console.log('!');
-        };
-
-        hi();
         return (
             <div className="container">
                 <div className="row">

@@ -1,10 +1,8 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
+// @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import "fonts/fonts";
 // Variables
 @import "variables";
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
-
-body {background: pink;}
