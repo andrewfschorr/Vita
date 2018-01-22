@@ -9,7 +9,7 @@
     <div class="row">
         <nav class="col-md-2 d-none d-md-block sidebar">
             <div class="side-nav">
-                <h3>Pages</h3>
+                <h5>Page Sections</h5>
                 <ul>
                     <li>
                         <a href="#">HELLO</a>

@@ -1,11 +1,18 @@
 @import "variables";
 
+.navbar {
+    background: $color-dark-grey;
+    color: #fff;
+}
+
 .sidebar {
 
-    border-right: 1px solid red;
+    border-right: 1px solid $color-light-grey;
     height: calc(100vh - #{$header-height});
     overflow-x: hidden;
     overflow-y: auto;
+    background: $color-off-white;
+    padding-top: 15px;
 
     .side-nav {
         ul {

@@ -15,39 +15,6 @@ mix
     .extract(['react'])
     .js('resources/assets/js/register.js', 'public/js')
     .js('resources/assets/js/welcome.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css')
-    .webpackConfig({
-        module: {
-            // rules: [
-            //     {
-            //         test: /\.jsx?$/,
-            //         use: [
-            //             {
-            //                 loader: 'babel-loader',
-            //                 options: {
-            //                     plugins: ['react-css-modules']
-            //                 }
-            //             }
-            //         ]
-            //     },
-            //     {
-            //         loaders: [
-            //             'style-loader',
-            //             'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
-            //         ],
-            //         test: /\.css$/
-            //     },
-            //     {
-            //         test: /\.s[ac]ss$/,
-            //         loaders: [
-            //             'style-loader',
-            //             'css-loader',
-            //             'sass-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
-            //         ]
-            //     },
-            // ]
-        },
-        // plugins: [new ExtractTextPlugin('[name].css', { allChunks: true })]
-    });
+    .sass('resources/assets/sass/app.scss', 'public/css');
 
 mix.disableNotifications();
