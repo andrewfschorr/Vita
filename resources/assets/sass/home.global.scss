@@ -1,5 +1,17 @@
 @import "variables";
 
 .sidebar {
+
+    border-right: 1px solid red;
     height: calc(100vh - #{$header-height});
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .side-nav {
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+    }
 }

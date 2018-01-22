@@ -7,9 +7,25 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+            <div class="side-nav">
+                <h3>Pages</h3>
                 <ul>
+                    <li>
+                        <a href="#">HELLO</a>
+                    </li>
+                    <li>
+                        <a href="#">HELLO</a>
+                    </li>
+                    <li>
+                        <a href="#">HELLO</a>
+                    </li>
+                    <li>
+                        <a href="#">HELLO</a>
+                    </li>
+                    <li>
+                        <a href="#">HELLO</a>
+                    </li>
                     <li>
                         <a href="#">HELLO</a>
                     </li>

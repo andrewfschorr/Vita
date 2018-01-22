@@ -1,2 +1,9 @@
 .sidebar {
-  height: calc(100vh - 50px); }
+  border-right: 1px solid red;
+  height: calc(100vh - 50px);
+  overflow-x: hidden;
+  overflow-y: auto; }
+  .sidebar .side-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none; }
