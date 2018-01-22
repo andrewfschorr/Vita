@@ -6001,3 +6001,6 @@ a.text-dark:focus, a.text-dark:hover {
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #ddd !important; } }
+
+.navbar {
+  height: 50px; }

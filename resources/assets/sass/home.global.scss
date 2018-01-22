@@ -1,3 +1,5 @@
-.sidebar {
+@import "variables";
 
+.sidebar {
+    height: calc(100vh - #{$header-height});
 }
