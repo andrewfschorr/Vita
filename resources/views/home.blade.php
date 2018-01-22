@@ -1,23 +1,25 @@
+@section('pageStyle')
+<link href="{{ asset('styles/home.css') }}" rel="stylesheet">
+@endsection
+
 @extends('layouts.vita')
 
 @section('content')
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-md-8 offset-md-2">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar">
+                <ul>
+                    <li>
+                        <a href="#">HELLO</a>
+                    </li>
+                </ul>
             </div>
-        </div>
+        </nav>
+        <main role="main" clas="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <p>this is the thing</p>
+        </main>
     </div>
 </div>
+
 @endsection

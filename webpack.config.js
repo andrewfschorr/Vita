@@ -1,7 +1,8 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+    .BundleAnalyzerPlugin;
 
 module.exports = {
     // devtool: 'source-map',
@@ -14,7 +15,7 @@ module.exports = {
         register: './resources/assets/js/register.js',
         // CSS
         global: './resources/assets/sass/app.global.scss',
-        foo: './resources/assets/sass/app.global.scss'
+        home: './resources/assets/sass/home.global.scss'
     },
     output: {
         path: path.resolve('public/js'),
@@ -49,7 +50,10 @@ module.exports = {
                 test: /^((?!\.global).)*\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]', 'sass-loader']
+                    use: [
+                        'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+                        'sass-loader'
+                    ]
                 })
             },
             {
@@ -68,7 +72,7 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
-        }),
+        })
         // new BundleAnalyzerPlugin({
         //     analyzerMode: 'static'
         // })

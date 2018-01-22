@@ -1,17 +1,17 @@
 webpackJsonp([2],{
 
-/***/ 218:
+/***/ 217:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 console.log('register page');
-__webpack_require__(219);
+__webpack_require__(218);
 
 /***/ }),
 
-/***/ 219:
+/***/ 218:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31,7 +31,7 @@ var _reactDom = __webpack_require__(35);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-__webpack_require__(220);
+__webpack_require__(219);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -94,7 +94,7 @@ if (document.getElementById('registerDomEl')) {
 
 /***/ }),
 
-/***/ 220:
+/***/ 219:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -102,4 +102,4 @@ module.exports = {"reg":"resources-assets-js-components-register-___index__reg__
 
 /***/ })
 
-},[218]);
+},[217]);
