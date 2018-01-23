@@ -1,14 +1,23 @@
 @section('pageStyle')
 <link href="{{ asset('styles/home.css') }}" rel="stylesheet">
 @endsection
-
 @extends('layouts.vita')
-
 @section('content')
 <div class="container-fluid">
     <div class="row">
         <nav class="col-2  sidebar">
             <div class="side-nav">
+                <h5>Account</h5>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <a href="#">
+                                <img src="{{ asset('icons/document.svg') }}" alt="document" class="icon">
+                                Page Info
+                            </a>
+                        </a>
+                    </li>
+                </ul>
                 <h5>Pages</h5>
                 <ul>
                     <li>
@@ -43,7 +52,5 @@
         </main>
     </div>
 </div>
-@endsection
-@section('pageScript')
-<script src="{{ asset('js/home.js') }}" defer></script>
-@endsection
+@endsection @section('pageScript')
+<script src="{{ asset('js/home.js') }}" defer></script> @endsection
