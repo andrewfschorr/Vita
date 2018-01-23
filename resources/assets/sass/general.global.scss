@@ -1,0 +1,17 @@
+body {
+    color: $black-80;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $montserrat-bold;
+    }
+}
+.info-section {
+    background: $color-off-white;
+    padding: 20px;
+
+    h4 {
+        text-transform: uppercase;
+        border-bottom: 1px solid $black-40;
+        padding-bottom: 4px;
+    }
+}

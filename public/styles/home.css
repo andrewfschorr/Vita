@@ -10,6 +10,11 @@
   background: rgba(0, 0, 0, 0.05);
   padding-top: 15px; }
   .sidebar .side-nav ul {
-    padding: 0;
+    padding: 0 0 15px;
     margin: 0;
     list-style-type: none; }
+    .sidebar .side-nav ul li {
+      font-size: 14px; }
+      .sidebar .side-nav ul li img {
+        height: 12px;
+        color: #3097D1; }

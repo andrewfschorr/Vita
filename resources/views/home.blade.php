@@ -7,36 +7,34 @@
     <div class="row">
         <nav class="col-2  sidebar">
             <div class="side-nav">
-                <h5>Account</h5>
+                <!-- <h5>Profile</h5>
                 <ul>
                     <li>
                         <a href="#">
-                            <a href="#">
-                                <img src="{{ asset('icons/document.svg') }}" alt="document" class="icon">
-                                Page Info
-                            </a>
+                            <img src="{{ asset('icons/cog.svg') }}" alt="document" class="icon">
+                            Page Info
                         </a>
                     </li>
-                </ul>
+                </ul> -->
                 <h5>Pages</h5>
                 <ul>
                     <li>
-                        <a href="#">HELLO</a>
+                        <a href="#">
+                           <img src="{{ asset('icons/star.svg') }}" alt="document" class="icon">
+                           Home
+                        </a>
                     </li>
                     <li>
-                        <a href="#">HELLO</a>
+                        <a href="#">
+                           <img src="{{ asset('icons/document.svg') }}" alt="document" class="icon">
+                           Page One
+                        </a>
                     </li>
                     <li>
-                        <a href="#">HELLO</a>
-                    </li>
-                    <li>
-                        <a href="#">HELLO</a>
-                    </li>
-                    <li>
-                        <a href="#">HELLO</a>
-                    </li>
-                    <li>
-                        <a href="#">HELLO</a>
+                        <a href="#">
+                           <img src="{{ asset('icons/document.svg') }}" alt="document" class="icon">
+                           Two three And Four five siz seven 8 nine ten eleve
+                        </a>
                     </li>
                 </ul>
                 <hr>
@@ -45,8 +43,11 @@
         </nav>
         <main role="main" class="col-10 pt-3 px-4">
             <div class="row justify-content-md-center">
-                <div class="col col-10">
-                    <p style="background:red">helloooo world</p>
+                <div class="col col-10 info-section">
+                    <h4>Site Info</h4>
+                    <p>he</p>
+                    <p>helloo </p>
+                    <p>hi again</p>
                 </div>
             </div>
         </main>

@@ -1,3 +1,45 @@
+@font-face {
+  font-family: 'montserratblack';
+  src: url("/fonts/montserrat/montserrat-black-webfont.woff2") format("woff2"), url("/fonts/montserrat/montserrat-black-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'montserratbold';
+  src: url("/fonts/montserrat/montserrat-bold-webfont.woff2") format("woff2"), url("/fonts/montserrat/montserrat-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'montserratlight';
+  src: url("/fonts/montserrat/montserrat-light-webfont.woff2") format("woff2"), url("/fonts/montserrat/montserrat-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'montserratmedium';
+  src: url("/fonts/montserrat/montserrat-medium-webfont.woff2") format("woff2"), url("/fonts/montserrat/montserrat-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'montserratregular';
+  src: url("/fonts/montserrat/montserrat-regular-webfont.woff2") format("woff2"), url("/fonts/montserrat/montserrat-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'montserratsemibold_italic';
+  src: url("/fonts/montserrat/montserrat-semibolditalic-webfont.woff2") format("woff2"), url("/fonts/montserrat/montserrat-semibolditalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'montserratthin';
+  src: url("/fonts/montserrat/montserrat-thin-webfont.woff2") format("woff2"), url("/fonts/montserrat/montserrat-thin-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
 /*!
  * Bootstrap v4.0.0-beta.3 (https://getbootstrap.com)
  * Copyright 2011-2017 The Bootstrap Authors
@@ -6003,4 +6045,19 @@ a.text-dark:focus, a.text-dark:hover {
     border: 1px solid #ddd !important; } }
 
 .navbar {
-  height: 50px; }
+  height: 50px;
+  color: #fff;
+  font-family: "montserratregular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+body {
+  color: #333333; }
+  body h1, body h2, body h3, body h4, body h5, body h6 {
+    font-family: "montserratmedium", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.info-section {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 20px; }
+  .info-section h4 {
+    text-transform: uppercase;
+    border-bottom: 1px solid #999999;
+    padding-bottom: 4px; }

@@ -16,9 +16,17 @@
 
     .side-nav {
         ul {
-            padding: 0;
+            padding: 0 0 15px;
             margin: 0;
             list-style-type: none;
+
+            li {
+                font-size: 14px;
+                img {
+                    height: 12px;
+                    color: $primary;
+                }
+            }
         }
     }
 }
