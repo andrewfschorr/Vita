@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'username'
+        'email', 'password',
     ];
 
     /**
@@ -30,5 +30,9 @@ class User extends Authenticatable
     public function restaurant()
     {
         return $this->hasOne('App\Restaurant');
+    }
+
+    public function pages() {
+        return $this->hasMany(Page::class);
     }
 }

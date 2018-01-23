@@ -11,3 +11,5 @@ cd storage/logs && tail -f laravel.log
 php artisan route:list
 
 /vendor/laravel/framework/src/Illuminate/Routing/Router.php
+
+App\Post::with('tags')->all();

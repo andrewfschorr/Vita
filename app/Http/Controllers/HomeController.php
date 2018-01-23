@@ -16,13 +16,12 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('home');
+    public function editPage($page) {
+        $page_model = \App\Page::where('user_id', \Auth::id())->where('name', $page)->firstOrFail();
+        return view('home', [
+            'bootstrap' => [
+                // fuckkkkk need the name
+            ]
+        ]);
     }
 }
