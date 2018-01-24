@@ -27,10 +27,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function restaurant()
-    {
-        return $this->hasOne('App\Restaurant');
-    }
 
     public function pages() {
         return $this->hasMany(Page::class);

@@ -13,7 +13,7 @@ module.exports = {
         app: './resources/assets/js/app.js',
         welcome: './resources/assets/js/welcome.js',
         register: './resources/assets/js/register.js',
-        home: './resources/assets/js/home.js',
+        dashboard: './resources/assets/js/dashboard.js',
         // CSS
         global: './resources/assets/sass/app.global.scss',
         // home: './resources/assets/sass/home.global.scss'

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,11 +16,12 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function editPage($page) {
+    public function editPage($page = 'home') {
         $page_model = \App\Page::where('user_id', \Auth::id())->where('name', $page)->firstOrFail();
-        return view('home', [
-            'bootstrap' => [
-                // fuckkkkk need the name
+        return view('dashboard', [
+            config('constants.DATA_BS') => [
+                'name' => \Auth::user()->name ?? null,
+                'page' => $page
             ]
         ]);
     }

@@ -7,11 +7,40 @@ body {
 }
 .info-section {
     background: $color-off-white;
-    padding: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
 
     h4 {
         text-transform: uppercase;
-        border-bottom: 1px solid $black-40;
+        border-bottom: 1px solid $black-80;
         padding-bottom: 4px;
+        margin-bottom: 20px;
     }
+
+    label {
+        padding-bottom: 0;
+        margin-bottom: 2px;
+    }
+
+    @include transparent-input;
+}
+
+.page-section {
+    background: $color-off-white;
+    padding: 30px;
+    margin-bottom: 20px;
+
+    h4 {
+        text-transform: uppercase;
+        border-bottom: 1px solid $black-80;
+        padding-bottom: 4px;
+        margin-bottom: 20px;
+    }
+
+    label {
+        padding-bottom: 0;
+        margin-bottom: 2px;
+    }
+
+    @include transparent-input;
 }

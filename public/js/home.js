@@ -1,19 +1,9 @@
 webpackJsonp([3],{
 
 /***/ 220:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(221);
-
-/***/ }),
-
-/***/ 221:
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/aschorr/Workspace/php_code/vita/resources/assets/js/home.js'\n    at Error (native)");
 
 /***/ })
 

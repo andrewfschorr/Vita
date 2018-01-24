@@ -17,5 +17,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/edit/{page}', 'HomeController@editPage');
+Route::redirect('/dashboard/home', '/dashboard', 301); // this needs to gi first
+Route::get('/dashboard/{page?}', 'DashboardController@editPage');

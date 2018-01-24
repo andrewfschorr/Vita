@@ -13,6 +13,11 @@
     <!-- Styles -->
     <link href="{{ asset('styles/global.css') }}" rel="stylesheet">
     @yield('pageStyle')
+    @isset($dataBs)
+    <script>
+        var {{ config('constants.DATA_BS') }} = {!! json_encode(${config('constants.DATA_BS')}) !!};
+    </script>
+    @endisset
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">

@@ -1,0 +1,20 @@
+@mixin transparent-input {
+    input[type="text"] {
+        outline: none;
+        border: none;
+        padding: 5px;
+        border-bottom: 1px solid $black-40;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        color: $black-80;
+        font-size: 16px;
+    }
+
+    input[type="text"]:focus{
+        outline: none;
+        border: none;
+        border-bottom: 1px solid $black-40;
+        border-radius: 0;
+    }
+}

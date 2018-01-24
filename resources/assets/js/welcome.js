@@ -1,1 +1,1 @@
-require('./components/welcome');
+require('./welcome');
