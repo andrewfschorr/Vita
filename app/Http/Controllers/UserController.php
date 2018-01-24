@@ -13,8 +13,15 @@ class UserController extends Controller
 
     public function pages()
     {
-        return [
-            'pages' => \Auth::user()->pages
-        ];
+        $pages = [];
+        foreach (\Auth::user()->pages as $page) {
+            $pages[] = [
+                'name'=> $page->name,
+                'url'=> $page->url,
+                'display_name'=> $page->display_name,
+            ];
+        }
+
+        return $pages;
     }
 }

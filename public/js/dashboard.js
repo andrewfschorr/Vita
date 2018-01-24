@@ -65,22 +65,21 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Dashboard = function (_Component) {
     _inherits(Dashboard, _Component);
 
-    function Dashboard() {
+    function Dashboard(props) {
         _classCallCheck(this, Dashboard);
 
-        return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this, props));
+
+        _this.state = {
+            pages: null
+        };
+        return _this;
     }
 
     _createClass(Dashboard, [{
         key: 'componentWillMount',
         value: function componentWillMount() {
-            console.log(this);
             this.getUserPages();
-        }
-    }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            console.log(this);
         }
     }, {
         key: 'getUserPages',
@@ -91,9 +90,8 @@ var Dashboard = function (_Component) {
                 credentials: 'same-origin'
             }).then(function (resp) {
                 return resp.json();
-            }).then(function (data) {
-                console.log(data);
-                _this2.setState('foo', 'bar');
+            }).then(function (pages) {
+                _this2.setState('pages', pages);
             }).catch(function () {});
         }
     }, {
@@ -102,7 +100,7 @@ var Dashboard = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'row' },
-                _react2.default.createElement(_pagesSidebar2.default, null),
+                _react2.default.createElement(_pagesSidebar2.default, { pages: this.state.pages }),
                 _react2.default.createElement(_pageComponent2.default, null)
             );
         }

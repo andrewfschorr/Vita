@@ -5,25 +5,23 @@ import PagesComponent from './page-component';
 import './index.scss';
 
 export default class Dashboard extends Component {
-    componentWillMount() {
-        console.log(this);
-        this.getUserPages();
+    constructor(props) {
+        super(props);
+        this.state = {
+            pages: null
+        };
     }
-
-    componentDidMount() {
-        console.log(this);
+    componentWillMount() {
+        this.getUserPages();
     }
 
     getUserPages() {
         fetch('/user/pages', {
             credentials: 'same-origin'
         })
-            .then(resp => {
-                return resp.json();
-            })
-            .then(data => {
-                console.log(data);
-                this.setState('foo', 'bar');
+            .then(resp => resp.json())
+            .then(pages => {
+                this.setState('pages', pages);
             })
             .catch(() => {});
     }
@@ -31,7 +29,7 @@ export default class Dashboard extends Component {
     render() {
         return (
             <div className="row">
-                <PagesSidebar />
+                <PagesSidebar pages={this.state.pages} />
                 <PagesComponent />
             </div>
         );
