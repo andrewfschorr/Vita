@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::redirect('/dashboard/home', '/dashboard', 301); // this needs to gi first
 Route::get('/dashboard/{page?}', 'DashboardController@editPage');
+Route::get('/user/pages', 'UserController@pages');

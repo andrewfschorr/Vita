@@ -9,20 +9,33 @@ export default class PagesSidebar extends Component {
                     <ul>
                         <li>
                             <a href="#">
-                            <img src="/icons/star.svg" alt="document" className="icon" />
-                            Home
+                                <img
+                                  src="/icons/star.svg"
+                                  alt="document"
+                                  className="icon"
+                                />
+                                Home
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                            <img src="icons/document.svg" alt="document" className="icon" />
-                            Page One
+                                <img
+                                  src="icons/document.svg"
+                                  alt="document"
+                                  className="icon"
+                                />
+                                Page One
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                            <img src="icons/document.svg" alt="document" className="icon" />
-                            Two three And Four five siz seven 8 nine ten eleve
+                                <img
+                                  src="icons/document.svg"
+                                  alt="document"
+                                  className="icon"
+                                />
+                                Two three And Four five siz seven 8 nine ten
+                                eleve
                             </a>
                         </li>
                     </ul>
