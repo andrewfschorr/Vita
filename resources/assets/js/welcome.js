@@ -1,1 +1,1 @@
-require('./welcome');
+import './welcome/index';

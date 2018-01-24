@@ -8,7 +8,7 @@ export default class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pages: null
+            pages: null,
         };
     }
     componentWillMount() {
@@ -17,11 +17,11 @@ export default class Dashboard extends Component {
 
     getUserPages() {
         fetch('/user/pages', {
-            credentials: 'same-origin'
+            credentials: 'same-origin',
         })
             .then(resp => resp.json())
             .then(pages => {
-                this.setState('pages', pages);
+                this.setState({ pages });
             })
             .catch(() => {});
     }

@@ -19,6 +19,7 @@ class UserController extends Controller
                 'name'=> $page->name,
                 'url'=> $page->url,
                 'display_name'=> $page->display_name,
+                'id' => $page->id,
             ];
         }
 

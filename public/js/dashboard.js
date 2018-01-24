@@ -1,24 +1,24 @@
 webpackJsonp([1],{
 
-/***/ 216:
+/***/ 220:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _react = __webpack_require__(21);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(59);
+var _reactDom = __webpack_require__(28);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _dashboardBase = __webpack_require__(217);
+var _dashboardBase = __webpack_require__(221);
 
 var _dashboardBase2 = _interopRequireDefault(_dashboardBase);
 
-__webpack_require__(221);
+__webpack_require__(225);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28,7 +28,7 @@ if (document.getElementById('dashboardDomEl')) {
 
 /***/ }),
 
-/***/ 217:
+/***/ 221:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40,19 +40,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(21);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _pagesSidebar = __webpack_require__(218);
+var _pagesSidebar = __webpack_require__(222);
 
 var _pagesSidebar2 = _interopRequireDefault(_pagesSidebar);
 
-var _pageComponent = __webpack_require__(219);
+var _pageComponent = __webpack_require__(223);
 
 var _pageComponent2 = _interopRequireDefault(_pageComponent);
 
-__webpack_require__(220);
+__webpack_require__(224);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -91,7 +91,7 @@ var Dashboard = function (_Component) {
             }).then(function (resp) {
                 return resp.json();
             }).then(function (pages) {
-                _this2.setState('pages', pages);
+                _this2.setState({ pages: pages });
             }).catch(function () {});
         }
     }, {
@@ -113,7 +113,7 @@ exports.default = Dashboard;
 
 /***/ }),
 
-/***/ 218:
+/***/ 222:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -125,7 +125,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(21);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -148,7 +148,13 @@ var PagesSidebar = function (_Component) {
 
     _createClass(PagesSidebar, [{
         key: "render",
+
+        // componentWillReceiveProps(nextProps) {
+        //     console.log(nextProps);
+        // }
+
         value: function render() {
+            var hasLoadedPages = !(this.props.pages instanceof Array);
             return _react2.default.createElement(
                 "nav",
                 { className: "col-2 sidebar" },
@@ -160,51 +166,29 @@ var PagesSidebar = function (_Component) {
                         null,
                         "Pages"
                     ),
-                    _react2.default.createElement(
+                    hasLoadedPages ? _react2.default.createElement(
+                        "p",
+                        null,
+                        "Loading"
+                    ) : _react2.default.createElement(
                         "ul",
                         null,
-                        _react2.default.createElement(
-                            "li",
-                            null,
-                            _react2.default.createElement(
-                                "a",
-                                { href: "#" },
-                                _react2.default.createElement("img", {
-                                    src: "/icons/star.svg",
-                                    alt: "document",
-                                    className: "icon"
-                                }),
-                                "Home"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "li",
-                            null,
-                            _react2.default.createElement(
-                                "a",
-                                { href: "#" },
-                                _react2.default.createElement("img", {
-                                    src: "icons/document.svg",
-                                    alt: "document",
-                                    className: "icon"
-                                }),
-                                "Page One"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "li",
-                            null,
-                            _react2.default.createElement(
-                                "a",
-                                { href: "#" },
-                                _react2.default.createElement("img", {
-                                    src: "icons/document.svg",
-                                    alt: "document",
-                                    className: "icon"
-                                }),
-                                "Two three And Four five siz seven 8 nine ten eleve"
-                            )
-                        )
+                        this.props.pages.map(function (page) {
+                            return _react2.default.createElement(
+                                "li",
+                                { key: page.id },
+                                _react2.default.createElement(
+                                    "a",
+                                    { href: "/dashboard/" + page.url },
+                                    _react2.default.createElement("img", {
+                                        src: "/icons/document.svg",
+                                        alt: "document",
+                                        className: "icon"
+                                    }),
+                                    page.name
+                                )
+                            );
+                        })
                     ),
                     _react2.default.createElement("hr", null),
                     _react2.default.createElement(
@@ -224,7 +208,7 @@ exports.default = PagesSidebar;
 
 /***/ }),
 
-/***/ 219:
+/***/ 223:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -236,7 +220,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(21);
+var _react = __webpack_require__(15);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -280,7 +264,13 @@ var PagesComponent = function (_Component) {
                             _react2.default.createElement(
                                 "div",
                                 { className: "form-group" },
-                                _react2.default.createElement("input", { type: "text", className: "form-control", id: "pageName", "aria-describedby": "siteNameHelp", placeholder: "Site Name" }),
+                                _react2.default.createElement("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    id: "pageName",
+                                    "aria-describedby": "siteNameHelp",
+                                    placeholder: "Site Name"
+                                }),
                                 _react2.default.createElement(
                                     "small",
                                     { id: "siteNameHelp", className: "form-text text-muted" },
@@ -312,7 +302,13 @@ var PagesComponent = function (_Component) {
                             _react2.default.createElement(
                                 "div",
                                 { className: "form-group" },
-                                _react2.default.createElement("input", { type: "text", className: "form-control", id: "pageName", "aria-describedby": "pageNameHelp", placeholder: "Page Name" })
+                                _react2.default.createElement("input", {
+                                    type: "text",
+                                    className: "form-control",
+                                    id: "pageName",
+                                    "aria-describedby": "pageNameHelp",
+                                    placeholder: "Page Name"
+                                })
                             ),
                             _react2.default.createElement(
                                 "button",
@@ -333,18 +329,18 @@ exports.default = PagesComponent;
 
 /***/ }),
 
-/***/ 220:
+/***/ 224:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 221:
+/***/ 225:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ })
 
-},[216]);
+},[220]);

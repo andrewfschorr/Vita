@@ -9,10 +9,20 @@ export default class PagesComponent extends Component {
                         <h4>Site Info</h4>
                         <form>
                             <div className="form-group">
-                                <input type="text" className="form-control" id="pageName" aria-describedby="siteNameHelp" placeholder="Site Name" />
-                                <small id="siteNameHelp" className="form-text text-muted">This is your site's URL.</small>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="pageName"
+                                    aria-describedby="siteNameHelp"
+                                    placeholder="Site Name"
+                                />
+                                <small id="siteNameHelp" className="form-text text-muted">
+                                    This is your site's URL.
+                                </small>
                             </div>
-                            <button type="submit" className="btn btn-primary">Save</button>
+                            <button type="submit" className="btn btn-primary">
+                                Save
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -21,9 +31,17 @@ export default class PagesComponent extends Component {
                         <h4>page name</h4>
                         <form>
                             <div className="form-group">
-                                <input type="text" className="form-control" id="pageName" aria-describedby="pageNameHelp" placeholder="Page Name" />
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="pageName"
+                                    aria-describedby="pageNameHelp"
+                                    placeholder="Page Name"
+                                />
                             </div>
-                            <button type="submit" className="btn btn-primary">Save</button>
+                            <button type="submit" className="btn btn-primary">
+                                Save
+                            </button>
                         </form>
                     </div>
                 </div>
