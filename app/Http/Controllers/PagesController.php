@@ -31,9 +31,17 @@ class PagesController extends Controller
     {
         $user = \Auth::user();
         $user->site_name = request('siteName');
-        $user->save();
+        try {
+            $user->save();
+        } catch (Illuminate\Database\QueryException $e) {
+            $errorCode = $e->errorInfo[1];
+            if($errorCode == '1062'){
+                dd('Duplicate Entry');
+            }
+        }
         return response([
             'siteName' => $user->site_name,
         ]);
+
     }
 }
