@@ -12,15 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return env('SPLASH_PAGE', false) ? view('splash') : view('welcome');
 })->middleware('guest');
 
-Auth::routes();
+if (env('SPLASH_PAGE', false)) {
+    Route::any('/{any}', function() {
+        return redirect('/');
+    })->where('any', '.*');
+}
 
+Auth::routes();
 Route::get('/dashboard/home', 'DashboardController@home');
 Route::get('/dashboard/page/{page?}', 'DashboardController@editPage');
-
-
 // Ajax routes
 Route::get('/user/pages', 'PagesController@userPages');
 Route::post('/user/site-name', 'PagesController@storeSiteName');

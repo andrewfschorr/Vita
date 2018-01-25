@@ -48,7 +48,8 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
-        ]
+        ],
+        "log": "tail -f storage/logs/laravel.log"
     },
     "config": {
         "preferred-install": "dist",

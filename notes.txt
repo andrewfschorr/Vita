@@ -6,7 +6,7 @@ VS code settings:
 
 "search.useIgnoreFiles": false
 
-cd storage/logs && tail -f laravel.log
+tail -f storage/logs/laravel.log
 
 php artisan route:list
 
