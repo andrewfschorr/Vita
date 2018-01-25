@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::redirect('/dashboard/home', '/dashboard', 301); // this needs to gi first
-Route::get('/dashboard/{page?}', 'DashboardController@editPage');
-Route::get('/user/pages', 'UserController@pages');
+Route::get('/dashboard/home', 'DashboardController@home');
+Route::get('/dashboard/page/{page?}', 'DashboardController@editPage');
+
+
+// Ajax routes
+Route::get('/user/pages', 'PagesController@userPages');
+Route::post('/user/site-name', 'PagesController@storeSiteName');

@@ -16,12 +16,19 @@ class DashboardController extends Controller
         $this->middleware('auth');
     }
 
-    public function editPage($page = 'home') {
-        $page_model = \App\Page::where('user_id', \Auth::id())->where('name', $page)->firstOrFail();
+    public function home() {
         return view('dashboard', [
             config('constants.DATA_BS') => [
-                'name' => \Auth::user()->name ?? null,
-                'page' => $page
+                'siteName' => \Auth::user()->site_name
+            ]
+        ]);
+    }
+
+    public function editPage($page_id) {
+        $page = \App\Page::where('user_id', \Auth::id())->where('id', $page_id)->firstOrFail();
+        return view('dashboard', [
+            config('constants.DATA_BS') => [
+                'page' => $page->name
             ]
         ]);
     }

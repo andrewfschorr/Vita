@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PagesSidebar from './pages-sidebar';
+import DashSidebar from './dash-sidebar';
 import PagesComponent from './page-component';
+import SiteInfoComponent from './site-info-component';
 
 import './index.scss';
 
@@ -27,10 +28,20 @@ export default class Dashboard extends Component {
     }
 
     render() {
+        let mainComponent;
+        if (_.has(this.props, 'siteName')) {
+            mainComponent = <SiteInfoComponent siteName={this.props.siteName} />;
+        } else if (_.has(this.props, 'page')) {
+            mainComponent = <PagesComponent />;
+        } else {
+            mainComponent = null;
+        }
         return (
             <div className="row">
-                <PagesSidebar pages={this.state.pages} />
-                <PagesComponent />
+                <DashSidebar pages={this.state.pages} />
+                <main role="main" className="col-10 pt-3 px-4">
+                    {mainComponent}
+                </main>
             </div>
         );
     }

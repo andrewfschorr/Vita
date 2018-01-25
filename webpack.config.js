@@ -1,8 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-    .BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     // devtool: 'source-map',
@@ -20,7 +19,10 @@ module.exports = {
     },
     output: {
         path: path.resolve('public/js'),
-        filename: '[name].js'
+        filename: '[name].js',
+    },
+    resolve: {
+        modules: [path.resolve('./resources/assets/js'), 'node_modules'],
     },
     module: {
         loaders: [
@@ -29,8 +31,8 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    plugins: ['react-css-modules']
-                }
+                    plugins: ['react-css-modules'],
+                },
             },
             {
                 // for testing, no one should ever be using plain css in 2018
@@ -44,7 +46,7 @@ module.exports = {
             {
                 test: /\.jsx$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
             },
             {
                 // local CSS modules
@@ -53,29 +55,29 @@ module.exports = {
                     fallback: 'style-loader',
                     use: [
                         'css-loader?importLoader=1&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-                        'sass-loader'
-                    ]
-                })
+                        'sass-loader',
+                    ],
+                }),
             },
             {
                 // Global plain ol sass
                 test: /\.global\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
-                })
-            }
-        ]
+                    use: ['css-loader', 'sass-loader'],
+                }),
+            },
+        ],
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: '../styles/[name].css'
+            filename: '../styles/[name].css',
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor'
-        })
+            name: 'vendor',
+        }),
         // new BundleAnalyzerPlugin({
         //     analyzerMode: 'static'
         // })
-    ]
+    ],
 };

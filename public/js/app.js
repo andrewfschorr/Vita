@@ -18,7 +18,6 @@ window._ = __webpack_require__(192);
 
 try {
   // window.$ = window.jQuery = require('jquery/dist/jquery.slim');
-
   // require('bootstrap');
 } catch (e) {}
 

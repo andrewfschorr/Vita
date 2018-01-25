@@ -14,12 +14,15 @@
     overflow-x: hidden;
     overflow-y: auto;
     padding: 10px 15px 30px; }
+    .sidebar .side-nav h5 {
+      margin-bottom: 2px; }
     .sidebar .side-nav ul {
       padding: 0;
-      margin: 0;
+      margin: 0 0 15px;
       list-style-type: none; }
-      .sidebar .side-nav ul li {
+      .sidebar .side-nav ul a {
         font-size: 14px; }
-        .sidebar .side-nav ul li img {
+        .sidebar .side-nav ul a img {
+          padding-right: 5px;
           height: 12px;
           color: #3097D1; }
