@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @include('partials.ga')
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>VitaPages | Websites and a web presence for your busines</title>
-    <meta name="description" content="VitaPages is a website builder for your small business. You need a web presence. Get it a VitaPage."/>
+    <meta name="description" content="VitaPages is a website builder for your small business, bakery, art stuido, photography work, clown job, whatever. You need a web presence. Get it a VitaPage."/>
     <link href="{{ asset('styles/splash.css') }}" rel="stylesheet">
 </head>
 <body>
