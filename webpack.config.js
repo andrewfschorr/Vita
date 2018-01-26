@@ -13,6 +13,7 @@ module.exports = {
         welcome: './resources/assets/js/welcome.js',
         register: './resources/assets/js/register.js',
         dashboard: './resources/assets/js/dashboard.js',
+        splash: './resources/assets/js/splash.js',
         // CSS
         global: './resources/assets/sass/app.global.scss',
         // home: './resources/assets/sass/home.global.scss'

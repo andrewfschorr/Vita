@@ -16,6 +16,7 @@ Route::get('/', function () {
 })->middleware('guest');
 
 if (env('SPLASH_PAGE', false)) {
+    Route::post('/subscribe-splash', 'SplashController@subscribe');
     Route::any('/{any}', function() {
         return redirect('/');
     })->where('any', '.*');
