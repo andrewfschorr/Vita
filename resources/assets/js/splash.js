@@ -54,12 +54,12 @@ export default class Welcome extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-4 offset-md-8 t-right">
-                        <h3>You need a web site</h3>
+                        <h3>You need a website.</h3>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-md-10 offset-md-2 t-right">
-                        <h2 className="bold">Custom website templates for your business</h2>
+                        <h2 className="bold">Build your website here. Get your VitaPage.</h2>
                     </div>
                 </div>
                 <div className="row justify-content-center">

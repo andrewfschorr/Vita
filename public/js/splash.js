@@ -1005,7 +1005,7 @@ var Welcome = function (_Component) {
                         _react2.default.createElement(
                             'h3',
                             null,
-                            'You need a web site'
+                            'You need a website.'
                         )
                     )
                 ),
@@ -1018,7 +1018,7 @@ var Welcome = function (_Component) {
                         _react2.default.createElement(
                             'h2',
                             { className: 'bold' },
-                            'Custom website templates for your business'
+                            'Build your website here. Get your VitaPage.'
                         )
                     )
                 ),
