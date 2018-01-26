@@ -45,7 +45,11 @@ export default class Welcome extends Component {
                 }
             })
             .catch(error => {
-                this.setState({ succesfulSubmit: 'error' });
+                if (error.response.status === 500) {
+                    this.setState({ succesfulSubmit: 'error' });
+                } else {
+                    this.setState({ succesfulSubmit: 'duplicate' });
+                }
                 console.log(error);
             });
     }
@@ -91,9 +95,13 @@ export default class Welcome extends Component {
                                     </small>
                                 </div>
                             </div>
-                        ) : this.state.succesfulSubmit === 'error' ? (
+                        ) : typeof this.state.succesfulSubmit === 'string' ? (
                             <div className="alert alert-danger" role="alert">
-                                <strong>Uh oh...</strong> You may already be subscribed. 😬
+                                <strong>Uh oh...</strong>{' '}
+                                {this.state.succesfulSubmit === 'duplicate'
+                                    ? 'You may already be subscribed.'
+                                    : 'There was an erorr processing your request.'}{' '}
+                                😬
                             </div>
                         ) : (
                             <div className="alert alert-success" role="alert">
