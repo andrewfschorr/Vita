@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <h1 class="bold">VitaPages</h1>
+                <h1 class="bold">VitaPages.io</h1>
             </a>
         </div>
     </nav>
