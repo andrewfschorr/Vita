@@ -16,7 +16,7 @@ export default class AddPage extends Component {
         e.preventDefault();
         axios
             .post(
-                '/add-page',
+                '/page',
                 {
                     pageName: this.state.newPageName,
                 },
@@ -25,7 +25,7 @@ export default class AddPage extends Component {
                 },
             )
             .then(response => {
-                console.log(response);
+                window.location = `/dashboard/page/${response.data.page}`;
             })
             .catch(error => {
                 console.log(error);
@@ -59,18 +59,16 @@ export default class AddPage extends Component {
                         </label>
                         <div styleName="btnContainer">
                             <a
-                                href="#"
+                                href="/"
                                 className="btn btn-primary btn-sm"
-                                onClick={e => this.addPage(e)}
-                            >
+                                onClick={e => this.addPage(e)}>
                                 Add
                             </a>
                             <a
-                                href="#"
+                                href="/"
                                 styleName="rightAlign"
                                 className="btn btn-danger btn-sm"
-                                onClick={() => this.setState({ addPageOpen: false })}
-                            >
+                                onClick={() => this.setState({ addPageOpen: false })}>
                                 Cancel
                             </a>
                         </div>

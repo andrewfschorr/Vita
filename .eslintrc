@@ -10,7 +10,7 @@
     "react/prefer-stateless-function": 0,
     "react/jsx-filename-extension": 0,
     "react/no-unescaped-entities": ["error", { "forbid": [] }],
-    "jsx-closing-bracket-location": [1, {"selfClosing": "after-props"}],
+    "react/jsx-closing-bracket-location": [0, {"selfClosing": "after-props"}],
     "no-nested-ternary": 0,
     "no-console": "off",
     "prettier/prettier": [

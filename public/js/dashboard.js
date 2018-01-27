@@ -110,7 +110,7 @@ var Dashboard = function (_Component) {
             if (_.has(this.props, 'siteName')) {
                 mainComponent = _react2.default.createElement(_siteInfoComponent2.default, { siteName: this.props.siteName });
             } else if (_.has(this.props, 'page')) {
-                mainComponent = _react2.default.createElement(_pageComponent2.default, null);
+                mainComponent = _react2.default.createElement(_pageComponent2.default, { pageName: this.props.page, id: this.props.id });
             } else {
                 mainComponent = null;
             }
@@ -305,12 +305,12 @@ var AddPage = function (_Component) {
         key: 'addPage',
         value: function addPage(e) {
             e.preventDefault();
-            axios.post('/add-page', {
+            axios.post('/page', {
                 pageName: this.state.newPageName
             }, {
                 withCredentials: true
             }).then(function (response) {
-                console.log(response);
+                window.location = '/dashboard/page/' + response.data.page;
             }).catch(function (error) {
                 console.log(error);
             });
@@ -359,24 +359,22 @@ var AddPage = function (_Component) {
                         _react2.default.createElement(
                             'a',
                             {
-                                href: '#',
+                                href: '/',
                                 className: 'btn btn-primary btn-sm',
                                 onClick: function onClick(e) {
                                     return _this2.addPage(e);
-                                }
-                            },
+                                } },
                             'Add'
                         ),
                         _react2.default.createElement(
                             'a',
                             {
-                                href: '#',
+                                href: '/',
 
                                 className: 'btn btn-danger btn-sm resources-assets-js-dashboard-base-dash-sidebar-add-page-___index__rightAlign___27GH5',
                                 onClick: function onClick() {
                                     return _this2.setState({ addPageOpen: false });
-                                }
-                            },
+                                } },
                             'Cancel'
                         )
                     )
@@ -410,47 +408,134 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _bootstrapAlert = __webpack_require__(227);
+
+var _bootstrapAlert2 = _interopRequireDefault(_bootstrapAlert);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function () {
-    return _react2.default.createElement(
-        "div",
-        { className: "row justify-content-md-center" },
-        _react2.default.createElement(
-            "div",
-            { className: "col col-10 page-section" },
-            _react2.default.createElement(
-                "h4",
-                null,
-                "page name"
-            ),
-            _react2.default.createElement(
-                "form",
-                null,
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PagesComponent = function (_Component) {
+    _inherits(PagesComponent, _Component);
+
+    function PagesComponent() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, PagesComponent);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = PagesComponent.__proto__ || Object.getPrototypeOf(PagesComponent)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            pageName: _this.props.pageName,
+            id: _this.props.id,
+            alertStatus: null
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(PagesComponent, [{
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.setState({ pageName: e.target.value });
+        }
+    }, {
+        key: 'removeAlert',
+        value: function removeAlert() {
+            this.setState({ alertStatus: null });
+        }
+    }, {
+        key: 'changePageName',
+        value: function changePageName(e) {
+            var _this2 = this;
+
+            e.preventDefault();
+            console.log(this.state.id);
+            axios.put('/page', {
+                pageName: this.state.pageName,
+                id: this.state.id
+            }, {
+                withCredentials: true
+            }).then(function (resp) {
+                _this2.setState({ alertStatus: 'success', pageName: resp.data.pageName });
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this3 = this;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'row justify-content-md-center' },
                 _react2.default.createElement(
-                    "div",
-                    { className: "form-group" },
-                    _react2.default.createElement("input", {
-                        type: "text",
-                        className: "form-control",
-                        id: "pageName",
-                        "aria-describedby": "pageNameHelp",
-                        placeholder: "Page Name"
-                    })
-                ),
-                _react2.default.createElement(
-                    "button",
-                    { type: "submit", className: "btn btn-primary" },
-                    "Save"
+                    'div',
+                    { className: 'col col-10 page-section' },
+                    _react2.default.createElement(
+                        'h4',
+                        null,
+                        'page name'
+                    ),
+                    _react2.default.createElement(
+                        'form',
+                        null,
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'form-group' },
+                            _react2.default.createElement('input', {
+                                value: this.state.pageName,
+                                onChange: function onChange(e) {
+                                    return _this3.handleChange(e);
+                                },
+                                type: 'text',
+                                className: 'form-control',
+                                id: 'pageName',
+                                'aria-describedby': 'pageNameHelp',
+                                placeholder: 'Page Name'
+                            })
+                        ),
+                        this.state.alertStatus === 'success' ? _react2.default.createElement(_bootstrapAlert2.default, {
+                            message: 'Your page is now named ' + this.state.pageName + '.',
+                            type: 'success',
+                            clickHandler: function clickHandler() {
+                                return _this3.removeAlert();
+                            }
+                        }) : null,
+                        _react2.default.createElement(
+                            'button',
+                            {
+                                type: 'submit',
+                                className: 'btn btn-primary',
+                                onClick: function onClick(e) {
+                                    return _this3.changePageName(e);
+                                } },
+                            'Save'
+                        )
+                    )
                 )
-            )
-        )
-    );
-};
+            );
+        }
+    }]);
+
+    return PagesComponent;
+}(_react.Component);
+
+exports.default = PagesComponent;
 
 /***/ }),
 
@@ -533,6 +618,8 @@ var PagesComponent = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
+
             return _react2.default.createElement(
                 'div',
                 { className: 'row justify-content-md-center' },
@@ -566,17 +653,18 @@ var PagesComponent = function (_Component) {
                             )
                         ),
                         this.state.alertType !== null ? _react2.default.createElement(_bootstrapAlert2.default, {
-                            name: this.state.alertName,
+                            message: 'Your site is now named ' + this.state.alertName + '.',
                             type: 'success',
-                            clickHandler: this.removeAlert.bind(this)
+                            clickHandler: function clickHandler() {
+                                return _this3.removeAlert();
+                            }
                         }) : null,
                         _react2.default.createElement(
                             'button',
                             {
                                 type: 'submit',
                                 className: 'btn btn-primary',
-                                onClick: this.handleSubmit
-                            },
+                                onClick: this.handleSubmit },
                             'Save'
                         )
                     )
@@ -609,45 +697,42 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Alert = function Alert(_ref) {
-    var name = _ref.name,
-        type = _ref.type,
+    var message = _ref.message,
+        _ref$type = _ref.type,
+        type = _ref$type === undefined ? 'success' : _ref$type,
         clickHandler = _ref.clickHandler;
     return _react2.default.createElement(
-        "div",
-        { className: "alert alert-" + type + " alert-dismissible fade show", role: "alert" },
+        'div',
+        { className: 'alert alert-' + type + ' alert-dismissible fade show', role: 'alert' },
         _react2.default.createElement(
-            "button",
+            'button',
             {
                 onClick: clickHandler,
-                type: "button",
-                className: "close",
-                "data-dismiss": "alert",
-                "aria-label": "Close"
-            },
+                type: 'button',
+                className: 'close',
+                'data-dismiss': 'alert',
+                'aria-label': 'Close' },
             _react2.default.createElement(
-                "span",
-                { "aria-hidden": "true" },
-                "\xD7"
+                'span',
+                { 'aria-hidden': 'true' },
+                '\xD7'
             )
         ),
         _react2.default.createElement(
-            "strong",
+            'strong',
             null,
-            "Congrats!",
-            ' ',
-            _react2.default.createElement(
-                "span",
-                { role: "img", "aria-label": "success" },
-                "\uD83C\uDF89"
+            type === 'success' ? _react2.default.createElement(
+                'span',
+                null,
+                'Congrats! \uD83C\uDF89'
+            ) : _react2.default.createElement(
+                'span',
+                null,
+                'Uh-oh...\uD83D\uDE31'
             )
         ),
-        "\xA0Your site is now named ",
-        _react2.default.createElement(
-            "strong",
-            null,
-            name
-        ),
-        "."
+        '\xA0',
+        message
     );
 };
 

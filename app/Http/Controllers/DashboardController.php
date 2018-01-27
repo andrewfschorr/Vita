@@ -28,7 +28,8 @@ class DashboardController extends Controller
         $page = \App\Page::where('user_id', \Auth::id())->where('id', $page_id)->firstOrFail();
         return view('dashboard', [
             config('constants.DATA_BS') => [
-                'page' => $page->name
+                'page' => $page->name,
+                'id' => $page_id,
             ]
         ]);
     }

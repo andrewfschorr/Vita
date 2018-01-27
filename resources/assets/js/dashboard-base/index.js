@@ -30,7 +30,7 @@ export default class Dashboard extends Component {
         if (_.has(this.props, 'siteName')) {
             mainComponent = <SiteInfoComponent siteName={this.props.siteName} />;
         } else if (_.has(this.props, 'page')) {
-            mainComponent = <PagesComponent />;
+            mainComponent = <PagesComponent pageName={this.props.page} id={this.props.id} />;
         } else {
             mainComponent = null;
         }

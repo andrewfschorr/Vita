@@ -66,16 +66,15 @@ export default class PagesComponent extends Component {
                         </div>
                         {this.state.alertType !== null ? (
                             <BootstrapAlert
-                                name={this.state.alertName}
+                                message={`Your site is now named ${this.state.alertName}.`}
                                 type="success"
-                                clickHandler={this.removeAlert.bind(this)}
+                                clickHandler={() => this.removeAlert()}
                             />
                         ) : null}
                         <button
                             type="submit"
                             className="btn btn-primary"
-                            onClick={this.handleSubmit}
-                        >
+                            onClick={this.handleSubmit}>
                             Save
                         </button>
                     </form>

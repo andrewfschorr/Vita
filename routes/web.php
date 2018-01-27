@@ -28,4 +28,5 @@ Route::get('/dashboard/page/{page?}', 'DashboardController@editPage');
 // Ajax routes
 Route::get('/user/pages', 'PagesController@userPages');
 Route::post('/user/site-name', 'PagesController@storeSiteName');
-Route::post('/add-page', 'PagesController@addPage');
+Route::post('/page', 'PagesController@addPage');
+Route::put('/page', 'PagesController@updatePage');
