@@ -6066,21 +6066,6 @@ body {
   .info-section label {
     padding-bottom: 0;
     margin-bottom: 2px; }
-  .info-section input[type="text"] {
-    outline: none;
-    border: none;
-    padding: 5px;
-    border-bottom: 1px solid #999999;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    color: #333333;
-    font-size: 16px; }
-  .info-section input[type="text"]:focus {
-    outline: none;
-    border: none;
-    border-bottom: 1px solid #999999;
-    border-radius: 0; }
 
 .page-section {
   background: rgba(0, 0, 0, 0.05);
@@ -6094,18 +6079,3 @@ body {
   .page-section label {
     padding-bottom: 0;
     margin-bottom: 2px; }
-  .page-section input[type="text"] {
-    outline: none;
-    border: none;
-    padding: 5px;
-    border-bottom: 1px solid #999999;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    color: #333333;
-    font-size: 16px; }
-  .page-section input[type="text"]:focus {
-    outline: none;
-    border: none;
-    border-bottom: 1px solid #999999;
-    border-radius: 0; }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddPage from './add-page';
 
 export default class PagesSidebar extends Component {
     render() {
@@ -10,7 +11,7 @@ export default class PagesSidebar extends Component {
                     <ul>
                         <li>
                             <a href="/dashboard/home">
-                                <img src="/icons/document.svg" alt="document" className="icon" />
+                                <img src="/icons/home.svg" alt="home" className="icon" />
                                 <span>Site Info</span>
                             </a>
                         </li>
@@ -33,7 +34,7 @@ export default class PagesSidebar extends Component {
                         </ul>
                     )}
                     <hr />
-                    <a href="/add-page">+ Add new page</a>
+                    <AddPage />
                 </div>
             </nav>
         );

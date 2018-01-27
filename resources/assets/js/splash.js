@@ -45,7 +45,11 @@ export default class Welcome extends Component {
                 }
             })
             .catch(error => {
-                this.setState({ succesfulSubmit: 'error' });
+                if (error.response.status === 500) {
+                    this.setState({ succesfulSubmit: 'error' });
+                } else {
+                    this.setState({ succesfulSubmit: 'duplicate' });
+                }
                 console.log(error);
             });
     }
@@ -54,12 +58,15 @@ export default class Welcome extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-4 offset-md-8 t-right">
-                        <h3>You need a website.</h3>
+                        <h3>It's 2018, you need a website</h3>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-md-10 offset-md-2 t-right">
-                        <h2 className="bold">Build your website here. Get your VitaPage.</h2>
+                        <h2 className="bold">
+                            Get a custom webpage for you &mdash; your small business, photography
+                            studio, clow job, whatever. Get a Vitapage.{' '}
+                        </h2>
                     </div>
                 </div>
                 <div className="row justify-content-center">
@@ -91,9 +98,13 @@ export default class Welcome extends Component {
                                     </small>
                                 </div>
                             </div>
-                        ) : this.state.succesfulSubmit === 'error' ? (
+                        ) : typeof this.state.succesfulSubmit === 'string' ? (
                             <div className="alert alert-danger" role="alert">
-                                <strong>Uh oh...</strong> You may already be subscribed. 😬
+                                <strong>Uh oh...</strong>{' '}
+                                {this.state.succesfulSubmit === 'duplicate'
+                                    ? 'You may already be subscribed.'
+                                    : 'There was an erorr processing your request.'}{' '}
+                                😬
                             </div>
                         ) : (
                             <div className="alert alert-success" role="alert">

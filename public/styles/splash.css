@@ -6069,10 +6069,11 @@ body {
   body h1 {
     color: #56CC9D; }
   body h2 {
-    font-size: 36px; }
+    font-size: 28px; }
   body h3 {
     padding-top: 40px;
-    font-family: 'montserratmedium', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    font-family: 'montserratmedium', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 19px; }
   body .t-right {
     text-align: center; }
   body .sub {

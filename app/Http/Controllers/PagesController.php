@@ -26,6 +26,10 @@ class PagesController extends Controller
         return $pages;
     }
 
+    public function addPage() {
+        \Log::debug(request('pageName'));
+    }
+
     // TODO Figure out where the fuck to put this method?
     public function storeSiteName()
     {

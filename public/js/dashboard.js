@@ -1,4 +1,4 @@
-webpackJsonp([1],{
+webpackJsonp([2],{
 
 /***/ 220:
 /***/ (function(module, exports, __webpack_require__) {
@@ -6,11 +6,11 @@ webpackJsonp([1],{
 "use strict";
 
 
-var _react = __webpack_require__(13);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(28);
+var _reactDom = __webpack_require__(23);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -18,7 +18,7 @@ var _dashboardBase = __webpack_require__(221);
 
 var _dashboardBase2 = _interopRequireDefault(_dashboardBase);
 
-__webpack_require__(227);
+__webpack_require__(229);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40,7 +40,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(13);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -48,15 +48,15 @@ var _dashSidebar = __webpack_require__(222);
 
 var _dashSidebar2 = _interopRequireDefault(_dashSidebar);
 
-var _pageComponent = __webpack_require__(223);
+var _pageComponent = __webpack_require__(225);
 
 var _pageComponent2 = _interopRequireDefault(_pageComponent);
 
-var _siteInfoComponent = __webpack_require__(224);
+var _siteInfoComponent = __webpack_require__(226);
 
 var _siteInfoComponent2 = _interopRequireDefault(_siteInfoComponent);
 
-__webpack_require__(226);
+__webpack_require__(228);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -69,15 +69,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Dashboard = function (_Component) {
     _inherits(Dashboard, _Component);
 
-    function Dashboard(props) {
+    function Dashboard() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
         _classCallCheck(this, Dashboard);
 
-        var _this = _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this, props));
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
 
-        _this.state = {
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
             pages: null
-        };
-        return _this;
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(Dashboard, [{
@@ -141,9 +146,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(13);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _addPage = __webpack_require__(223);
+
+var _addPage2 = _interopRequireDefault(_addPage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -163,60 +172,60 @@ var PagesSidebar = function (_Component) {
     }
 
     _createClass(PagesSidebar, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             var hasLoadedPages = !(this.props.pages instanceof Array);
             return _react2.default.createElement(
-                "nav",
-                { className: "col-2 sidebar" },
+                'nav',
+                { className: 'col-2 sidebar' },
                 _react2.default.createElement(
-                    "div",
-                    { className: "side-nav" },
+                    'div',
+                    { className: 'side-nav' },
                     _react2.default.createElement(
-                        "h5",
+                        'h5',
                         null,
-                        "Account"
+                        'Account'
                     ),
                     _react2.default.createElement(
-                        "ul",
+                        'ul',
                         null,
                         _react2.default.createElement(
-                            "li",
+                            'li',
                             null,
                             _react2.default.createElement(
-                                "a",
-                                { href: "/dashboard/home" },
-                                _react2.default.createElement("img", { src: "/icons/document.svg", alt: "document", className: "icon" }),
+                                'a',
+                                { href: '/dashboard/home' },
+                                _react2.default.createElement('img', { src: '/icons/home.svg', alt: 'home', className: 'icon' }),
                                 _react2.default.createElement(
-                                    "span",
+                                    'span',
                                     null,
-                                    "Site Info"
+                                    'Site Info'
                                 )
                             )
                         )
                     ),
                     _react2.default.createElement(
-                        "h5",
+                        'h5',
                         null,
-                        "Pages"
+                        'Pages'
                     ),
                     hasLoadedPages ? null : _react2.default.createElement(
-                        "ul",
+                        'ul',
                         null,
                         this.props.pages.map(function (page) {
                             return _react2.default.createElement(
-                                "li",
+                                'li',
                                 { key: page.id },
                                 _react2.default.createElement(
-                                    "a",
-                                    { href: "/dashboard/page/" + page.id },
-                                    _react2.default.createElement("img", {
-                                        src: "/icons/document.svg",
-                                        alt: "document",
-                                        className: "icon"
+                                    'a',
+                                    { href: '/dashboard/page/' + page.id },
+                                    _react2.default.createElement('img', {
+                                        src: '/icons/document.svg',
+                                        alt: 'document',
+                                        className: 'icon'
                                     }),
                                     _react2.default.createElement(
-                                        "span",
+                                        'span',
                                         null,
                                         page.name
                                     )
@@ -224,12 +233,8 @@ var PagesSidebar = function (_Component) {
                             );
                         })
                     ),
-                    _react2.default.createElement("hr", null),
-                    _react2.default.createElement(
-                        "a",
-                        { href: "/add-page" },
-                        "+ Add new page"
-                    )
+                    _react2.default.createElement('hr', null),
+                    _react2.default.createElement(_addPage2.default, null)
                 )
             );
         }
@@ -254,9 +259,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(13);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _index = __webpack_require__(224);
+
+var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -266,47 +275,109 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PagesComponent = function (_Component) {
-    _inherits(PagesComponent, _Component);
+var AddPage = function (_Component) {
+    _inherits(AddPage, _Component);
 
-    function PagesComponent() {
-        _classCallCheck(this, PagesComponent);
+    function AddPage() {
+        var _ref;
 
-        return _possibleConstructorReturn(this, (PagesComponent.__proto__ || Object.getPrototypeOf(PagesComponent)).apply(this, arguments));
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, AddPage);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = AddPage.__proto__ || Object.getPrototypeOf(AddPage)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+            addPageOpen: false,
+            newPageName: ''
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
-    _createClass(PagesComponent, [{
-        key: "render",
+    _createClass(AddPage, [{
+        key: 'toggleAddField',
+        value: function toggleAddField(e) {
+            e.preventDefault();
+            this.setState({ addPageOpen: !this.state.addPageOpen });
+        }
+    }, {
+        key: 'addPage',
+        value: function addPage(e) {
+            e.preventDefault();
+            axios.post('/add-page', {
+                pageName: this.state.newPageName
+            }, {
+                withCredentials: true
+            }).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    }, {
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.setState({ newPageName: e.target.value });
+        }
+    }, {
+        key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
-                "div",
-                { className: "row justify-content-md-center" },
-                _react2.default.createElement(
-                    "div",
-                    { className: "col col-10 page-section" },
+                'div',
+                null,
+                !this.state.addPageOpen ? _react2.default.createElement(
+                    'a',
+                    { href: '#', onClick: function onClick(e) {
+                            return _this2.toggleAddField(e);
+                        } },
+                    '+ Add new page'
+                ) : _react2.default.createElement(
+                    'div',
+                    null,
                     _react2.default.createElement(
-                        "h4",
-                        null,
-                        "page name"
+                        'label',
+                        { htmlFor: 'pageName' },
+                        'Add Page',
+                        _react2.default.createElement('input', {
+                            onChange: function onChange(e) {
+                                return _this2.handleChange(e);
+                            },
+                            type: 'text',
+                            className: 'form-control',
+                            id: 'pageName',
+                            'aria-describedby': 'pageName',
+                            placeholder: 'Enter email',
+                            value: this.state.newPageName
+                        })
                     ),
                     _react2.default.createElement(
-                        "form",
-                        null,
+                        'div',
+                        { className: 'resources-assets-js-dashboard-base-dash-sidebar-add-page-___index__btnContainer___djLRC' },
                         _react2.default.createElement(
-                            "div",
-                            { className: "form-group" },
-                            _react2.default.createElement("input", {
-                                type: "text",
-                                className: "form-control",
-                                id: "pageName",
-                                "aria-describedby": "pageNameHelp",
-                                placeholder: "Page Name"
-                            })
+                            'a',
+                            {
+                                href: '#',
+                                className: 'btn btn-primary btn-sm',
+                                onClick: function onClick(e) {
+                                    return _this2.addPage(e);
+                                }
+                            },
+                            'Add'
                         ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "submit", className: "btn btn-primary" },
-                            "Save"
+                            'a',
+                            {
+                                href: '#',
+
+                                className: 'btn btn-danger btn-sm resources-assets-js-dashboard-base-dash-sidebar-add-page-___index__rightAlign___27GH5',
+                                onClick: function onClick() {
+                                    return _this2.setState({ addPageOpen: false });
+                                }
+                            },
+                            'Cancel'
                         )
                     )
                 )
@@ -314,14 +385,76 @@ var PagesComponent = function (_Component) {
         }
     }]);
 
-    return PagesComponent;
+    return AddPage;
 }(_react.Component);
 
-exports.default = PagesComponent;
+exports.default = AddPage;
 
 /***/ }),
 
 /***/ 224:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"rightAlign":"resources-assets-js-dashboard-base-dash-sidebar-add-page-___index__rightAlign___27GH5","btnContainer":"resources-assets-js-dashboard-base-dash-sidebar-add-page-___index__btnContainer___djLRC"};
+
+/***/ }),
+
+/***/ 225:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+    return _react2.default.createElement(
+        "div",
+        { className: "row justify-content-md-center" },
+        _react2.default.createElement(
+            "div",
+            { className: "col col-10 page-section" },
+            _react2.default.createElement(
+                "h4",
+                null,
+                "page name"
+            ),
+            _react2.default.createElement(
+                "form",
+                null,
+                _react2.default.createElement(
+                    "div",
+                    { className: "form-group" },
+                    _react2.default.createElement("input", {
+                        type: "text",
+                        className: "form-control",
+                        id: "pageName",
+                        "aria-describedby": "pageNameHelp",
+                        placeholder: "Page Name"
+                    })
+                ),
+                _react2.default.createElement(
+                    "button",
+                    { type: "submit", className: "btn btn-primary" },
+                    "Save"
+                )
+            )
+        )
+    );
+};
+
+/***/ }),
+
+/***/ 226:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -333,11 +466,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(13);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _bootstrapAlert = __webpack_require__(225);
+var _bootstrapAlert = __webpack_require__(227);
 
 var _bootstrapAlert2 = _interopRequireDefault(_bootstrapAlert);
 
@@ -459,7 +592,7 @@ exports.default = PagesComponent;
 
 /***/ }),
 
-/***/ 225:
+/***/ 227:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -469,7 +602,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _react = __webpack_require__(13);
+var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -526,14 +659,14 @@ exports.default = Alert;
 
 /***/ }),
 
-/***/ 226:
+/***/ 228:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 227:
+/***/ 229:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

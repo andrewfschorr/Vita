@@ -6,12 +6,10 @@ import SiteInfoComponent from './site-info-component';
 import './index.scss';
 
 export default class Dashboard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            pages: null,
-        };
-    }
+    state = {
+        pages: null,
+    };
+
     componentWillMount() {
         this.getUserPages();
     }
