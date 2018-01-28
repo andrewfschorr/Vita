@@ -4,7 +4,7 @@ const webpack = require('webpack');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-    // devtool: 'source-map',
+    devtool: 'source-map',
     entry: {
         // TODO figure out a way to not manually list out all of them
         // JS

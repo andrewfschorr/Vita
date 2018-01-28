@@ -1,3 +1,4 @@
+// import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import BootstrapAlert from 'components/bootstrap-alert';
 
@@ -5,6 +6,7 @@ export default class PagesComponent extends Component {
     state = {
         pageName: this.props.pageName,
         id: this.props.id,
+        updatedPageName: null,
         alertStatus: null,
     };
 
@@ -18,7 +20,6 @@ export default class PagesComponent extends Component {
 
     changePageName(e) {
         e.preventDefault();
-        console.log(this.state.id);
         axios
             .put(
                 '/page',
@@ -31,7 +32,11 @@ export default class PagesComponent extends Component {
                 },
             )
             .then(resp => {
-                this.setState({ alertStatus: 'success', pageName: resp.data.pageName });
+                this.setState({ alertStatus: 'success', updatedPageName: resp.data.pageName });
+                this.props.updatePagesList({
+                    id: this.state.id,
+                    name: this.state.updatedPageName,
+                });
             })
             .catch(error => {
                 console.log(error);
@@ -57,7 +62,7 @@ export default class PagesComponent extends Component {
                         </div>
                         {this.state.alertStatus === 'success' ? (
                             <BootstrapAlert
-                                message={`Your page is now named ${this.state.pageName}.`}
+                                message={`Your page is now named ${this.state.updatedPageName}.`}
                                 type="success"
                                 clickHandler={() => this.removeAlert()}
                             />
@@ -74,3 +79,8 @@ export default class PagesComponent extends Component {
         );
     }
 }
+
+// PagesComponent.propTypes = {
+//     id: PropTypes.number,
+//     pageName: PropTypes.string,
+// };

@@ -10,10 +10,7 @@ const Alert = ({ message, type = 'success', clickHandler }) => (
             aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-        <strong>
-            {type === 'success' ? <span>Congrats! 🎉</span> : <span>Uh-oh...😱</span>}
-
-        </strong>
+        <strong>{type === 'success' ? <span>Congrats! 🎉</span> : <span>Uh-oh...😱</span>}</strong>
         &nbsp;{message}
     </div>
 );

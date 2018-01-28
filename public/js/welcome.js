@@ -1,16 +1,16 @@
 webpackJsonp([3],{
 
-/***/ 214:
+/***/ 215:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(215);
+__webpack_require__(216);
 
 /***/ }),
 
-/***/ 215:
+/***/ 216:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30,7 +30,7 @@ var _reactDom = __webpack_require__(23);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _index = __webpack_require__(216);
+var _index = __webpack_require__(217);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -95,7 +95,7 @@ if (document.getElementById('welcomeCpt')) {
 
 /***/ }),
 
-/***/ 216:
+/***/ 217:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -103,4 +103,5 @@ module.exports = {"a":"resources-assets-js-welcome-___index__a___3mBu-"};
 
 /***/ })
 
-},[214]);
+},[215]);
+//# sourceMappingURL=welcome.js.map

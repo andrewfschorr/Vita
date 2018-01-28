@@ -1,6 +1,70 @@
 webpackJsonp([2],{
 
-/***/ 220:
+/***/ 109:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(10);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Alert = function Alert(_ref) {
+    var message = _ref.message,
+        _ref$type = _ref.type,
+        type = _ref$type === undefined ? 'success' : _ref$type,
+        clickHandler = _ref.clickHandler;
+    return _react2.default.createElement(
+        'div',
+        { className: 'alert alert-' + type + ' alert-dismissible fade show', role: 'alert' },
+        _react2.default.createElement(
+            'button',
+            {
+                onClick: clickHandler,
+                type: 'button',
+                className: 'close',
+                'data-dismiss': 'alert',
+                'aria-label': 'Close' },
+            _react2.default.createElement(
+                'span',
+                { 'aria-hidden': 'true' },
+                '\xD7'
+            )
+        ),
+        _react2.default.createElement(
+            'strong',
+            null,
+            type === 'success' ? _react2.default.createElement(
+                'span',
+                null,
+                'Congrats! \uD83C\uDF89'
+            ) : _react2.default.createElement(
+                'span',
+                null,
+                'Uh-oh...\uD83D\uDE31'
+            )
+        ),
+        '\xA0',
+        message
+    );
+};
+
+// TODO figure this ish out
+Alert.propTypes = {};
+Alert.defaultProps = {};
+
+exports.default = Alert;
+
+/***/ }),
+
+/***/ 221:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14,7 +78,7 @@ var _reactDom = __webpack_require__(23);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _dashboardBase = __webpack_require__(221);
+var _dashboardBase = __webpack_require__(222);
 
 var _dashboardBase2 = _interopRequireDefault(_dashboardBase);
 
@@ -23,12 +87,13 @@ __webpack_require__(229);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 if (document.getElementById('dashboardDomEl')) {
+    if (_.has(dataBs, 'id')) dataBs.id = Number(dataBs.id); // TODO better way to enforce type?
     _reactDom2.default.render(_react2.default.createElement(_dashboardBase2.default, dataBs), document.getElementById('dashboardDomEl'));
 }
 
 /***/ }),
 
-/***/ 221:
+/***/ 222:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44,15 +109,15 @@ var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _dashSidebar = __webpack_require__(222);
+var _dashSidebar = __webpack_require__(223);
 
 var _dashSidebar2 = _interopRequireDefault(_dashSidebar);
 
-var _pageComponent = __webpack_require__(225);
+var _pageComponent = __webpack_require__(226);
 
 var _pageComponent2 = _interopRequireDefault(_pageComponent);
 
-var _siteInfoComponent = __webpack_require__(226);
+var _siteInfoComponent = __webpack_require__(227);
 
 var _siteInfoComponent2 = _interopRequireDefault(_siteInfoComponent);
 
@@ -69,20 +134,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Dashboard = function (_Component) {
     _inherits(Dashboard, _Component);
 
-    function Dashboard() {
-        var _ref;
-
-        var _temp, _this, _ret;
-
+    function Dashboard(props) {
         _classCallCheck(this, Dashboard);
 
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
+        var _this = _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this, props));
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+        _this.state = {
             pages: null
-        }, _temp), _possibleConstructorReturn(_this, _ret);
+        };
+
+        _this.updatedPagesList = _this.updatedPagesList.bind(_this);
+        return _this;
     }
 
     _createClass(Dashboard, [{
@@ -104,13 +166,28 @@ var Dashboard = function (_Component) {
             }).catch(function () {});
         }
     }, {
+        key: 'updatedPagesList',
+        value: function updatedPagesList(payload) {
+            var updatedPageList = this.state.pages.map(function (page) {
+                if (page.id === payload.id) {
+                    page.name = payload.name;
+                }
+                return page;
+            });
+            this.setState({ pages: updatedPageList });
+        }
+    }, {
         key: 'render',
         value: function render() {
             var mainComponent = void 0;
             if (_.has(this.props, 'siteName')) {
                 mainComponent = _react2.default.createElement(_siteInfoComponent2.default, { siteName: this.props.siteName });
             } else if (_.has(this.props, 'page')) {
-                mainComponent = _react2.default.createElement(_pageComponent2.default, { pageName: this.props.page, id: this.props.id });
+                mainComponent = _react2.default.createElement(_pageComponent2.default, {
+                    updatePagesList: this.updatedPagesList,
+                    pageName: this.props.page,
+                    id: this.props.id
+                });
             } else {
                 mainComponent = null;
             }
@@ -134,7 +211,7 @@ exports.default = Dashboard;
 
 /***/ }),
 
-/***/ 222:
+/***/ 223:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -150,7 +227,7 @@ var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _addPage = __webpack_require__(223);
+var _addPage = __webpack_require__(224);
 
 var _addPage2 = _interopRequireDefault(_addPage);
 
@@ -247,7 +324,7 @@ exports.default = PagesSidebar;
 
 /***/ }),
 
-/***/ 223:
+/***/ 224:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -263,7 +340,7 @@ var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _index = __webpack_require__(224);
+var _index = __webpack_require__(225);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -390,7 +467,7 @@ exports.default = AddPage;
 
 /***/ }),
 
-/***/ 224:
+/***/ 225:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -398,7 +475,7 @@ module.exports = {"rightAlign":"resources-assets-js-dashboard-base-dash-sidebar-
 
 /***/ }),
 
-/***/ 225:
+/***/ 226:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -414,7 +491,7 @@ var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _bootstrapAlert = __webpack_require__(227);
+var _bootstrapAlert = __webpack_require__(109);
 
 var _bootstrapAlert2 = _interopRequireDefault(_bootstrapAlert);
 
@@ -424,7 +501,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // import PropTypes from 'prop-types';
+
 
 var PagesComponent = function (_Component) {
     _inherits(PagesComponent, _Component);
@@ -443,6 +521,7 @@ var PagesComponent = function (_Component) {
         return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = PagesComponent.__proto__ || Object.getPrototypeOf(PagesComponent)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
             pageName: _this.props.pageName,
             id: _this.props.id,
+            updatedPageName: null,
             alertStatus: null
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
@@ -463,14 +542,17 @@ var PagesComponent = function (_Component) {
             var _this2 = this;
 
             e.preventDefault();
-            console.log(this.state.id);
             axios.put('/page', {
                 pageName: this.state.pageName,
                 id: this.state.id
             }, {
                 withCredentials: true
             }).then(function (resp) {
-                _this2.setState({ alertStatus: 'success', pageName: resp.data.pageName });
+                _this2.setState({ alertStatus: 'success', updatedPageName: resp.data.pageName });
+                _this2.props.updatePagesList({
+                    id: _this2.state.id,
+                    name: _this2.state.updatedPageName
+                });
             }).catch(function (error) {
                 console.log(error);
             });
@@ -510,7 +592,7 @@ var PagesComponent = function (_Component) {
                             })
                         ),
                         this.state.alertStatus === 'success' ? _react2.default.createElement(_bootstrapAlert2.default, {
-                            message: 'Your page is now named ' + this.state.pageName + '.',
+                            message: 'Your page is now named ' + this.state.updatedPageName + '.',
                             type: 'success',
                             clickHandler: function clickHandler() {
                                 return _this3.removeAlert();
@@ -535,11 +617,17 @@ var PagesComponent = function (_Component) {
     return PagesComponent;
 }(_react.Component);
 
+// PagesComponent.propTypes = {
+//     id: PropTypes.number,
+//     pageName: PropTypes.string,
+// };
+
+
 exports.default = PagesComponent;
 
 /***/ }),
 
-/***/ 226:
+/***/ 227:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -555,7 +643,7 @@ var _react = __webpack_require__(10);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _bootstrapAlert = __webpack_require__(227);
+var _bootstrapAlert = __webpack_require__(109);
 
 var _bootstrapAlert2 = _interopRequireDefault(_bootstrapAlert);
 
@@ -680,70 +768,6 @@ exports.default = PagesComponent;
 
 /***/ }),
 
-/***/ 227:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(10);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Alert = function Alert(_ref) {
-    var message = _ref.message,
-        _ref$type = _ref.type,
-        type = _ref$type === undefined ? 'success' : _ref$type,
-        clickHandler = _ref.clickHandler;
-    return _react2.default.createElement(
-        'div',
-        { className: 'alert alert-' + type + ' alert-dismissible fade show', role: 'alert' },
-        _react2.default.createElement(
-            'button',
-            {
-                onClick: clickHandler,
-                type: 'button',
-                className: 'close',
-                'data-dismiss': 'alert',
-                'aria-label': 'Close' },
-            _react2.default.createElement(
-                'span',
-                { 'aria-hidden': 'true' },
-                '\xD7'
-            )
-        ),
-        _react2.default.createElement(
-            'strong',
-            null,
-            type === 'success' ? _react2.default.createElement(
-                'span',
-                null,
-                'Congrats! \uD83C\uDF89'
-            ) : _react2.default.createElement(
-                'span',
-                null,
-                'Uh-oh...\uD83D\uDE31'
-            )
-        ),
-        '\xA0',
-        message
-    );
-};
-
-// TODO figure this ish out
-Alert.propTypes = {};
-Alert.defaultProps = {};
-
-exports.default = Alert;
-
-/***/ }),
-
 /***/ 228:
 /***/ (function(module, exports) {
 
@@ -758,4 +782,5 @@ exports.default = Alert;
 
 /***/ })
 
-},[220]);
+},[221]);
+//# sourceMappingURL=dashboard.js.map

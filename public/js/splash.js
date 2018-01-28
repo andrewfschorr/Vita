@@ -1804,3 +1804,4 @@ module.exports = function spread(callback) {
 /***/ })
 
 },[230]);
+//# sourceMappingURL=splash.js.map
