@@ -20,7 +20,7 @@ class PagesController extends Controller
                 'name'=> $page->name,
                 'url'=> $page->url,
                 'display_name'=> $page->display_name,
-                'id' => $page->id,
+                'id' => $page->page_id,
             ];
         }
 
@@ -31,19 +31,33 @@ class PagesController extends Controller
         $page = new Page;
         $page->name = request('pageName');
         $page->user_id = \Auth::id();
+        $max_page_id = \App\Page::where('user_id', \Auth::id())->max('page_id');
+        $page->page_id = $max_page_id + 1;
         $page->save();
         return [
-            'page' => $page->id,
+            'page' => $page->page_id,
         ];
     }
 
     public function updatePage(Request $request) {
-        $page = Page::find($request->id);
+        $page = \App\Page::where([
+            ['user_id', '=', \Auth::id()],
+            ['page_id', '=', $request->id],
+        ])->first();
         $page->name = $request->pageName;
         $page->save();
         return [
             'pageName' => $page->name,
         ];
+    }
+
+    public function deletePage(Request $request, $page)
+    {
+        $page = \App\Page::where([
+            ['user_id', '=', \Auth::id()],
+            ['page_id', '=', $page],
+        ])->first();
+        $page->delete();
     }
 
     /*
@@ -64,6 +78,5 @@ class PagesController extends Controller
         return response([
             'siteName' => $user->site_name,
         ]);
-
     }
 }

@@ -18,6 +18,7 @@ class CreatePagesTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->integer('user_id');
+            $table->integer('page_id');
         });
     }
 

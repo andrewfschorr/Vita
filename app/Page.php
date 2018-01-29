@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
+    // public $incrementing = false;
+
+    // protected $primaryKey = ['id', 'user_id'];
     /**
      * The attributes that are mass assignable.
      *

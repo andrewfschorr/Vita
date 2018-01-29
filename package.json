@@ -33,8 +33,10 @@
     "postcss": "^6.0.16",
     "postcss-scss": "^1.0.3",
     "prettier": "1.10.2",
+    "prop-types": "^15.6.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "reactstrap": "^5.0.0-alpha.4",
     "sass-loader": "^6.0.6",
     "webpack-bundle-analyzer": "^2.9.2",
     "webpack-merge": "^4.1.1"

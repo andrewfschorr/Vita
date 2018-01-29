@@ -25,7 +25,10 @@ class DashboardController extends Controller
     }
 
     public function editPage($page_id) {
-        $page = \App\Page::where('user_id', \Auth::id())->where('id', $page_id)->firstOrFail();
+        $page = \App\Page::where([
+            ['user_id', '=', \Auth::id()],
+            ['page_id', '=', $page_id],
+        ])->firstOrFail();
         return view('dashboard', [
             config('constants.DATA_BS') => [
                 'page' => $page->name,

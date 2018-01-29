@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('pages')->insert([
+            'id' => 1,
             'user_id' => 1,
+            'page_id' => 1,
             'name' => 'home',
         ]);
     }

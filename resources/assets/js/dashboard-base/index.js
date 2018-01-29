@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import DashSidebar from './dash-sidebar';
 import PagesComponent from './page-component';
@@ -64,3 +65,13 @@ export default class Dashboard extends Component {
         );
     }
 }
+
+// Dashboard.defaultProps = {
+//     id: 0,
+//     siteName: '',
+// };
+
+// Dashboard.propTypes = {
+//     id: PropTypes.number,
+//     siteName: PropTypes.string,
+// };

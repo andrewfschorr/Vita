@@ -30,3 +30,4 @@ Route::get('/user/pages', 'PagesController@userPages');
 Route::post('/user/site-name', 'PagesController@storeSiteName');
 Route::post('/page', 'PagesController@addPage');
 Route::put('/page', 'PagesController@updatePage');
+Route::delete('/page/{id}', 'PagesController@deletePage');
