@@ -115,7 +115,7 @@ export default class PagesComponent extends Component {
                 <div>
                     <Modal isOpen={this.state.showModal} toggle={this.toggle}>
                         <ModalBody>
-                            Are you sure you want to delete ${this.state.pageName}? This cannot be
+                            Are you sure you want to delete <strong>{this.state.pageName}</strong>? This cannot be
                             undone.
                         </ModalBody>
                         <ModalFooter>

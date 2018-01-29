@@ -694,8 +694,12 @@ var PagesComponent = function (_Component) {
                         _react2.default.createElement(
                             _reactstrap.ModalBody,
                             null,
-                            'Are you sure you want to delete $',
-                            this.state.pageName,
+                            'Are you sure you want to delete ',
+                            _react2.default.createElement(
+                                'strong',
+                                null,
+                                this.state.pageName
+                            ),
                             '? This cannot be undone.'
                         ),
                         _react2.default.createElement(

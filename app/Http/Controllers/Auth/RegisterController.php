@@ -79,6 +79,7 @@ class RegisterController extends Controller
         \App\Page::create([
             'name' => 'home',
             'user_id' => $user->id,
+            'page_id' => 1,
         ]);
 
         return $user;

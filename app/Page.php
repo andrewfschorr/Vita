@@ -6,16 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    // public $incrementing = false;
-
-    // protected $primaryKey = ['id', 'user_id'];
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'user_id',
+        'name', 'user_id', 'page_id'
     ];
 
     public function user()
