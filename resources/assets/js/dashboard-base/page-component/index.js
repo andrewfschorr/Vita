@@ -15,6 +15,7 @@ export default class PagesComponent extends Component {
 
     state = {
         pageName: this.props.pageName,
+        originalPageName: this.props.pageName,
         id: this.props.id,
         updatedPageName: null,
         alertStatus: null,
@@ -50,6 +51,7 @@ export default class PagesComponent extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        if (this.state.originalPageName === this.state.pageName) return;
         axios
             .put(
                 '/page',
@@ -62,7 +64,11 @@ export default class PagesComponent extends Component {
                 },
             )
             .then(resp => {
-                this.setState({ alertStatus: 'success', updatedPageName: resp.data.pageName });
+                this.setState({
+                    alertStatus: 'success',
+                    updatedPageName: resp.data.pageName,
+                    originalPageName: resp.data.pageName,
+                });
                 this.props.updatePagesList({
                     id: this.state.id,
                     name: this.state.updatedPageName,
@@ -115,8 +121,8 @@ export default class PagesComponent extends Component {
                 <div>
                     <Modal isOpen={this.state.showModal} toggle={this.toggle}>
                         <ModalBody>
-                            Are you sure you want to delete <strong>{this.state.pageName}</strong>? This cannot be
-                            undone.
+                            Are you sure you want to delete <strong>{this.state.pageName}</strong>?
+                            This cannot be undone.
                         </ModalBody>
                         <ModalFooter>
                             <Button color="primary" onClick={this.deletePage}>

@@ -565,6 +565,7 @@ var PagesComponent = function (_Component) {
 
         _this.state = {
             pageName: _this.props.pageName,
+            originalPageName: _this.props.pageName,
             id: _this.props.id,
             updatedPageName: null,
             alertStatus: null,
@@ -611,13 +612,18 @@ var PagesComponent = function (_Component) {
             var _this2 = this;
 
             e.preventDefault();
+            if (this.state.originalPageName === this.state.pageName) return;
             axios.put('/page', {
                 pageName: this.state.pageName,
                 id: this.state.id
             }, {
                 withCredentials: true
             }).then(function (resp) {
-                _this2.setState({ alertStatus: 'success', updatedPageName: resp.data.pageName });
+                _this2.setState({
+                    alertStatus: 'success',
+                    updatedPageName: resp.data.pageName,
+                    originalPageName: resp.data.pageName
+                });
                 _this2.props.updatePagesList({
                     id: _this2.state.id,
                     name: _this2.state.updatedPageName
