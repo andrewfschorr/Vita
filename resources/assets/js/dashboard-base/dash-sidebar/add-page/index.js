@@ -39,7 +39,7 @@ export default class AddPage extends Component {
                     this.setState({
                         alertMessage: 'Sorry, you already have a page by that name',
                         alertType: 'danger',
-                    })
+                    });
                 }
             });
     }
@@ -51,6 +51,13 @@ export default class AddPage extends Component {
     render() {
         return (
             <div>
+                {this.state.alertType !== null ? (
+                    <BootstrapAlert
+                        message={this.state.alertMessage}
+                        type={this.state.alertType}
+                        clickHandler={() => this.removeAlert()}
+                    />
+                ) : null}
                 {!this.state.addPageOpen ? (
                     <a href="#" onClick={e => this.toggleAddField(e)}>
                         + Add new page
@@ -85,13 +92,6 @@ export default class AddPage extends Component {
                                     Cancel
                                 </button>
                             </div>
-                            {this.state.alertType !== null ? (
-                                <BootstrapAlert
-                                    message={this.state.alertMessage}
-                                    type={this.state.alertType}
-                                    clickHandler={() => this.removeAlert()}
-                                />
-                            ) : null}
                         </form>
                     </div>
                 )}

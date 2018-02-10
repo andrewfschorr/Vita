@@ -531,6 +531,13 @@ var AddPage = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 null,
+                this.state.alertType !== null ? _react2.default.createElement(_bootstrapAlert2.default, {
+                    message: this.state.alertMessage,
+                    type: this.state.alertType,
+                    clickHandler: function clickHandler() {
+                        return _this3.removeAlert();
+                    }
+                }) : null,
                 !this.state.addPageOpen ? _react2.default.createElement(
                     'a',
                     { href: '#', onClick: function onClick(e) {
@@ -581,14 +588,7 @@ var AddPage = function (_Component) {
                                     } },
                                 'Cancel'
                             )
-                        ),
-                        this.state.alertType !== null ? _react2.default.createElement(_bootstrapAlert2.default, {
-                            message: this.state.alertMessage,
-                            type: this.state.alertType,
-                            clickHandler: function clickHandler() {
-                                return _this3.removeAlert();
-                            }
-                        }) : null
+                        )
                     )
                 )
             );
