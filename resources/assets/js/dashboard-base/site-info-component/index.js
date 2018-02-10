@@ -31,12 +31,23 @@ export default class PagesComponent extends Component {
             )
             .then(response => {
                 this.setState({
-                    alertName: _.get(response, 'data.siteName'),
+                    alertMessage: `Your site has been named ${_.get(response, 'data.siteName')}`,
                     alertType: 'success',
                 });
             })
             .catch(error => {
-                console.log(error);
+                this.setState({
+                    alertType: 'danger',
+                });
+                if (error.response.status === 409) {
+                    this.setState({
+                        alertMessage: 'Oops, sorry, that site name has been taken.',
+                    });
+                } else {
+                    this.setState({
+                        alertMessage: 'Uh oh, something went wrong, out engineers have been alerted.'
+                    });
+                }
             });
     }
 
@@ -66,8 +77,8 @@ export default class PagesComponent extends Component {
                         </div>
                         {this.state.alertType !== null ? (
                             <BootstrapAlert
-                                message={`Your site is now named ${this.state.alertName}.`}
-                                type="success"
+                                message={this.state.alertMessage}
+                                type={this.state.alertType}
                                 clickHandler={() => this.removeAlert()}
                             />
                         ) : null}

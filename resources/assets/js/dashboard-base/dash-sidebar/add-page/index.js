@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import BootstrapAlert from 'components/bootstrap-alert';
+
 import style from './index.scss';
 
 export default class AddPage extends Component {
@@ -9,6 +11,7 @@ export default class AddPage extends Component {
     state = {
         addPageOpen: false,
         newPageName: '',
+        alertType: null,
     };
 
     toggleAddField(e) {
@@ -32,7 +35,12 @@ export default class AddPage extends Component {
                 window.location = `/dashboard/page/${response.data.page}`;
             })
             .catch(error => {
-                console.log(error);
+                if (error.response.status === 409) {
+                    this.setState({
+                        alertMessage: 'Sorry, you already have a page by that name',
+                        alertType: 'danger',
+                    })
+                }
             });
     }
 
@@ -77,6 +85,13 @@ export default class AddPage extends Component {
                                     Cancel
                                 </button>
                             </div>
+                            {this.state.alertType !== null ? (
+                                <BootstrapAlert
+                                    message={this.state.alertMessage}
+                                    type={this.state.alertType}
+                                    clickHandler={() => this.removeAlert()}
+                                />
+                            ) : null}
                         </form>
                     </div>
                 )}

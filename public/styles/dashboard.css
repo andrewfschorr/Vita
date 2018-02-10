@@ -2,7 +2,10 @@
   margin-left: auto; }
 
 .resources-assets-js-dashboard-base-dash-sidebar-add-page-___index__btnContainer___djLRC {
-  display: flex; }
+  display: flex;
+  padding-bottom: 15px; }
+.resources-assets-js-dashboard-base-page-component-___index__btnRight___303TA {
+  margin-left: auto; }
 .navbar {
   background: rgba(0, 0, 0, 0.75);
   color: #fff; }

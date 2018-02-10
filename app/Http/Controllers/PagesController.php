@@ -28,9 +28,22 @@ class PagesController extends Controller
     }
 
     public function addPage() {
+        $user_id = \Auth::id();
+        $page_name = request('pageName');
+
+        $page_exists = \App\Page::where([
+            ['user_id', '=', \Auth::id()],
+            ['name', '=', $page_name],
+        ])->first();
+
+        if (isset($page_exists)) {
+            return response()->json(['error' => 'Duplicate Entry'], 409);
+        }
         $page = new Page;
         $page->name = request('pageName');
-        $page->user_id = \Auth::id();
+        $page->user_id = $user_id;
+
+
         $max_page_id = \App\Page::where('user_id', \Auth::id())->max('page_id');
         $page->page_id = $max_page_id + 1;
         $page->save();
@@ -40,11 +53,23 @@ class PagesController extends Controller
     }
 
     public function updatePage(Request $request) {
+        $user_id = \Auth::id();
+        $page_name = request('pageName');
+
+        // TODO there has to be a better way than multiple ::where calls
+        $page_exists = \App\Page::where([
+            ['user_id', '=', $user_id],
+            ['name', '=', $page_name],
+        ])->first();
+        if (isset($page_exists)) {
+            return response()->json(['error' => 'Duplicate Entry'], 409);
+        }
+
         $page = \App\Page::where([
             ['user_id', '=', \Auth::id()],
             ['page_id', '=', $request->id],
         ])->first();
-        $page->name = $request->pageName;
+        $page->name = $page_name;
         $page->save();
         return [
             'pageName' => $page->name,
@@ -69,10 +94,10 @@ class PagesController extends Controller
         $user->site_name = request('siteName');
         try {
             $user->save();
-        } catch (Illuminate\Database\QueryException $e) {
+        } catch (\Exception $e) {
             $errorCode = $e->errorInfo[1];
             if($errorCode == '1062'){
-                return response('Duplicate entry', 400);
+                return response()->json(['error' => 'Duplicate Entry'], 409);
             }
         }
         return response([

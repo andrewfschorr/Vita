@@ -18,7 +18,7 @@ export default class PagesComponent extends Component {
         originalPageName: this.props.pageName,
         id: this.props.id,
         updatedPageName: null,
-        alertStatus: null,
+        alertType: null,
         showModal: false,
     };
 
@@ -34,7 +34,7 @@ export default class PagesComponent extends Component {
     }
 
     removeAlert() {
-        this.setState({ alertStatus: null });
+        this.setState({ alertType: null });
     }
 
     deletePage(e) {
@@ -65,7 +65,8 @@ export default class PagesComponent extends Component {
             )
             .then(resp => {
                 this.setState({
-                    alertStatus: 'success',
+                    alertType: 'success',
+                    alertMessage: `Your page is now named ${resp.data.pageName}`,
                     updatedPageName: resp.data.pageName,
                     originalPageName: resp.data.pageName,
                 });
@@ -75,7 +76,12 @@ export default class PagesComponent extends Component {
                 });
             })
             .catch(error => {
-                console.log(error);
+                if (error.response.status === 409) {
+                    this.setState({
+                        alertType: 'danger',
+                        alertMessage: `You already have a page by that name`,
+                    });
+                }
             });
     }
 
@@ -97,10 +103,17 @@ export default class PagesComponent extends Component {
                             />
                         </div>
 
-                        {this.state.alertStatus === 'success' ? (
+                        {/* {this.state.alertStatus === 'success' ? (
                             <BootstrapAlert
                                 message={`Your page is now named ${this.state.updatedPageName}.`}
                                 type="success"
+                                clickHandler={() => this.removeAlert()}
+                            />
+                        ) : null} */}
+                        {this.state.alertType !== null ? (
+                            <BootstrapAlert
+                                message={this.state.alertMessage}
+                                type={this.state.alertType}
                                 clickHandler={() => this.removeAlert()}
                             />
                         ) : null}
